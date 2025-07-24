@@ -1,0 +1,25 @@
+{
+  "name": "college-symposium",
+  "version": "1.0.0",
+  "description": "College Symposium Website with Registration System",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && npm run build:vercel",
+    "vercel-build": "npm run install-all && npm run build && cp -r frontend/build/* .",
+    "vercel-build-win": "npm run install-all && npm run build && xcopy /E /Y frontend\\build\\* ."
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^7.6.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
+  },
+  "dependencies": {
+    "ogl": "^1.0.11",
+    "react-player": "^3.3.1"
+  }
+}

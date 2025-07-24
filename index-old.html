@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altruixx</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 TechSymposium 2025</h1>
+        <p>Welcome to our College Symposium Website!</p>
+        <p>To run the full application with registration system:</p>
+        <ol style="text-align: left; max-width: 400px; margin: 0 auto;">
+            <li>Install dependencies: <code>npm run install-all</code></li>
+            <li>Start the application: <code>npm run dev</code></li>
+            <li>Open <a href="http://localhost:3000" style="color: #ffeb3b;">http://localhost:3000</a></li>
+        </ol>
+        <br>
+        <p><strong>Features:</strong></p>
+        <ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+            <li>5 Different Events</li>
+            <li>Registration System</li>
+            <li>MongoDB Backend</li>
+            <li>Modern React UI</li>
+        </ul>
+        <br>
+        <a href="#" class="btn" onclick="window.open('http://localhost:3000', '_blank')">
+            Open Application
+        </a>
+    </div>
+</body>
+</html>
