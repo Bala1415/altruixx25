@@ -296,10 +296,8 @@ const Home = () => {
                 <div className="follow-links">
                   <h4>Follow Us</h4>
                   <div>
-                    <a href="https://facebook.com/altruixx" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
-                    <a href="https://twitter.com/altruixx" target="_blank" rel="noopener noreferrer">🐦 Twitter</a>
-                    <a href="https://linkedin.com/company/altruixx" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-                    <a href="https://instagram.com/altruixx" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
+                    <a href="https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA==" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                    <a href="https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA==" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
                   </div>
                 </div>
               </form>

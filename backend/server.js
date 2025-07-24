@@ -1,10 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const twilio = require('twilio');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Initialize Twilio client
+const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 // Middleware
 app.use(cors());
@@ -20,18 +24,27 @@ mongoose.connect(MONGODB_URI, {
 .then(() => console.log('Connected to MongoDB'))
 .catch((error) => console.error('MongoDB connection error:', error));
 
+// Events Schema
+const eventSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  date: { type: Date, required: true },
+  maxParticipants: { type: Number, required: true },
+  currentParticipants: { type: Number, default: 0 }
+});
+
+const Event = mongoose.model('Event', eventSchema);
+
 // Registration Schema
 const registrationSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: String, required: true },
-  gender: { type: String, required: true },
-  institution: { type: String, required: true },
-  course: { type: String, required: true },
-  year: { type: String, required: true },
-  rollNumber: { type: String },
-  eventId: { type: Number, required: true },
-  eventName: { type: String, required: true },
+  teamMembers: { type: String },
+  events: [{
+    eventId: { type: Number, required: true },
+    eventName: { type: String, required: true }
+  }],
   teamMembers: { type: String },
   experience: { type: String },
   expectations: { type: String },
@@ -62,23 +75,70 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running successfully' });
 });
 
+// Event routes
+app.post('/api/events', async (req, res) => {
+  try {
+    const event = new Event(req.body);
+    await event.save();
+    res.status(201).json({ message: 'Event created successfully', event });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create event' });
+  }
+});
+
+app.get('/api/events', async (req, res) => {
+  try {
+    const events = await Event.find();
+    res.json(events);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch events' });
+  }
+});
+
 // Registration routes
 app.post('/api/registrations', async (req, res) => {
   try {
-    // Check if user is already registered for this event
-    const existingRegistration = await Registration.findOne({
-      email: req.body.email,
-      eventId: req.body.eventId
+    // Check if user already has registrations
+    const existingRegistrations = await Registration.findOne({
+      email: req.body.email
     });
 
-    if (existingRegistration) {
+    // Validate number of events
+    if (existingRegistrations && existingRegistrations.events.length + req.body.events.length > 2) {
       return res.status(400).json({
-        error: 'You are already registered for this event'
+        error: 'You can only register for a maximum of 2 events'
       });
+    }
+
+    // Check if user is already registered for any of the selected events
+    if (existingRegistrations) {
+      const alreadyRegisteredEvents = existingRegistrations.events.filter(
+        existingEvent => req.body.events.some(
+          newEvent => newEvent.eventId.toString() === existingEvent.eventId.toString()
+        )
+      );
+
+      if (alreadyRegisteredEvents.length > 0) {
+        return res.status(400).json({
+          error: 'You are already registered for one or more of these events'
+        });
+      }
     }
 
     const registration = new Registration(req.body);
     const savedRegistration = await registration.save();
+
+    // Send WhatsApp message
+    try {
+      await twilioClient.messages.create({
+        body: `Thank you for registering for ALTRUIXX 2K25!\n\nRegistration Details:\nName: ${req.body.fullName}\nEvents: ${req.body.events.map(e => e.eventName).join(', ')}\n\nWe look forward to seeing you at the events!`,
+        from: `whatsapp:${process.env.TWILIO_WHATSAPP_NUMBER}`,
+        to: `whatsapp:+91${req.body.phone}`
+      });
+    } catch (twilioError) {
+      console.error('WhatsApp notification error:', twilioError);
+      // Continue with registration even if WhatsApp notification fails
+    }
     
     res.status(201).json({
       message: 'Registration successful',
