@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import introLogo from '../assets/intro.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="nav-logo">
           <div className="logo-container">
-            <img src="/assets/intro.png" alt="ALTRUIXX Logo" className="logo-image" />
-            <p className="logo-text">2K25</p>
+            <img src={introLogo} alt="ALTRUIXX Logo" className="logo-image" />
+            <p className="logo-text"> ALTRUIXX 2K25</p>
           </div>
         </Link>
 
