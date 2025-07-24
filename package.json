@@ -19,6 +19,7 @@
     "tailwindcss": "^4.1.11"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "ogl": "^1.0.11",
     "react-player": "^3.3.1"
   }

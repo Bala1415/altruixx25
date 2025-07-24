@@ -43,7 +43,7 @@ const Home = () => {
         <source src={backgroundVideo} type="video/mp4" />
       </video>
       <div className="home-container">
-        <h3 className="home-title accent" style={{ textAlign: "center", height: "550px" }}>Welcome to ALTRUIXX 2K25</h3>
+        <h3 className="home-title accent" style={{ color: "white", textAlign: "center", height: "550px" }}>Welcome to ALTRUIXX 2K25</h3>
       </div>
 
       {/* Team Profilges Section */}
