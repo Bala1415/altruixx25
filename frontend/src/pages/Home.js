@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
-import backgroundVideo from '../assets/background.mp4';
-import SpotlightCard from '../components/SpotlightCard';
-import ProfileCard from '../components/ProfileCard';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './Home.css'; // <<<--- create this file using the CSS below
+import ProfileCard from '../components/ProfileCard';
+import CountdownTimer from '../components/countdown';
 
 const Home = () => {
-  // Contact form state
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [particles, setParticles] = useState([]);
+
+  // Create floating particles effect
+  useEffect(() => {
+    const createParticles = () => {
+      const newParticles = [];
+      for (let i = 0; i < 50; i++) {
+        newParticles.push({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 6,
+          duration: 3 + Math.random() * 3,
+        });
+      }
+      setParticles(newParticles);
+    };
+
+    createParticles();
+    const interval = setInterval(createParticles, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -17,294 +35,588 @@ const Home = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // This would be replaced by actual API or email logic
     setSent(true);
     setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 3000);
+    setTimeout(() => setSent(false), 5000);
   }
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const heroVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
     <div>
-      <video
-        autoPlay
-        loop
-        muted
-        id="video"
-        style={{
-          width: "100vw",
-          height: "250vh",
-          objectFit: "cover",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: -1
-        }}
-      >
-        <source src={backgroundVideo} type="video/mp4" />
-      </video>
-      <div className="home-container">
-        <h3 className="home-title accent" style={{ color: "white", textAlign: "center", height: "550px" }}>Welcome to ALTRUIXX 2K25</h3>
-      </div>
+     {/* Floating Particles */}
+<div className="particles">
+  {particles.map((particle) => (
+    <div
+      key={particle.id}
+      className="particle"
+      style={{
+        left: `${particle.left}%`,
+        animationDelay: `${particle.delay}s`,
+        animationDuration: `${particle.duration}s`,
+        backgroundColor: 'rgba(0, 255, 255, 0.5)' // Simplified background
+      }}
+    />
+  ))}
+</div>
 
-      {/* Team Profilges Section */}
-      <section className="team-profiles-section">
-        <h2 className="section-title accent">Events</h2>
+      {/* Hero Section */}
+      <motion.section 
+        className="hero"
+        variants={heroVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          ALTRUIXX 2K25
+        </motion.h1>
+        {/* Countdown replaces description */}
+        <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
+        {/* Remove the <motion.p> description */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+        >
+          <Link to="/events" className="cta-button">
+            Explore Events
+          </Link>
+        </motion.div>
+      </motion.section>
+
+      {/* Events Preview Section */}
+      <motion.section 
+        className="events-section"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.h2 className="section-title" variants={itemVariants}>
+          Featured Events
+        </motion.h2>
+        
+        <motion.div className="events-grid" variants={containerVariants}>
+          {[
+            {
+              id: 1,
+              title: "TECHNOVERSE",
+              description: "Multi-stage team-based technical event combining logical thinking, problem-solving, and real-world technical reasoning across three escalating rounds.",
+              category: "Competition",
+              icon: "🚀"
+            },
+            {
+              id: 2,
+              title: "404 - PROMPT NOT FOUND",
+              description: "Two-round event combining technical skills and creativity with Kahoot quiz, debugging challenges, and AI-powered storytelling.",
+              category: "Workshop",
+              icon: "🤖"
+            },
+            {
+              id: 3,
+              title: "THE CIPHER TEXT",
+              description: "Cybersecurity summit featuring interactive sessions on ethical hacking, penetration testing, and digital forensics.",
+              category: "Summit",
+              icon: "🔐"
+            }
+          ].map((event, index) => (
+            <motion.div
+              key={event.id}
+              className="event-card"
+              variants={itemVariants}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
+                {event.icon}
+              </div>
+              <div style={{ 
+                display: 'inline-block',
+                background: 'linear-gradient(135deg, #00ffff, #0080ff)',
+                color: '#0a0a0f',
+                padding: '0.5rem 1rem',
+                borderRadius: '20px',
+                fontSize: '0.9rem',
+                fontWeight: 'bold',
+                marginBottom: '1rem'
+              }}>
+                {event.category}
+              </div>
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+              <div className="event-actions">
+                <Link to={`/events/${event.id}`} className="btn-primary">
+                  Learn More
+                </Link>
+                <a 
+                  href="https://forms.google.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-secondary"
+                >
+                  Register Now
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
         
         <motion.div 
-          className="profile-row"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ textAlign: 'center', marginTop: '4rem' }}
+          variants={itemVariants}
         >
-          <div className="profile-container">
-            <ProfileCard
-              name=""
-              title=""
-              handle="eventteam"
-              status="Lead Organizers"
-              contactText="Contact Team"
-              avatarUrl="/assets/poster.jpg" // <-- changed to use the poster image
-              enableTilt={true}
-              enableMobileTilt={false}
-              onContactClick={() => {
-                const contactSection = document.querySelector('.contact-section');
-                contactSection?.scrollIntoView({ behavior: 'smooth' });
+          <Link to="/events" className="cta-button">
+            View All Events
+          </Link>
+        </motion.div>
+      </motion.section>
+
+      {/* Team Profiles Section */}
+      <motion.section 
+        className="team-profiles-section"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2rem' }}>
+          <motion.h2 className="section-title" variants={itemVariants} style={{ margin: 0 }}>
+            Our Events
+          </motion.h2>
+          <ProfileCard />
+        </div>
+        
+        {[
+          {
+            title: "TECHNOVERSE",
+            description: "Our flagship competition that challenges participants with algorithmic problems, data analysis, and machine learning techniques using modern tools and technologies.",
+            highlights: ["🎯 Multi-stage Competition", "📊 Data Analysis Challenges", "🤖 ML Implementation"],
+            image: "/assets/poster.jpg"
+          },
+          {
+            title: "404 - PROMPT NOT FOUND",
+            description: "An innovative workshop combining technical skills with creativity, featuring debugging challenges and AI-powered content generation.",
+            highlights: ["💻 Technical Skills Assessment", "🎨 Creative Challenges", "🔧 Debugging Expertise"],
+            image: "/assets/srm.png",
+            reverse: true
+          },
+          {
+            title: "THE CIPHER TEXT",
+            description: "Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations.",
+            highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
+            image: "/assets/srm.png"
+          },
+          {
+            title: "JADE JOURNEY",
+            description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
+            highlights: ["🌐 Full-Stack Development", "☁️ Cloud Deployment", "📱 Modern Frameworks"],
+            image: "/assets/srm.png",
+            reverse: true
+          },
+          {
+            title: "PAPER PRESENTATION",
+            description: "Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
+            highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
+            image: "/assets/srm.png"
+          }
+        ].map((event, index) => (
+          <motion.div
+            key={index}
+            className={`profile-row ${event.reverse ? 'reverse' : ''}`}
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+          >
+            <motion.div 
+              className="profile-container"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ProfileCard
+                name={event.title}
+                title="Technical Event"
+                handle={event.title.toLowerCase().replace(/\s+/g, '')}
+                status="Available"
+                contactText="Learn More"
+                avatarUrl={event.image}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => {
+                  const eventsSection = document.querySelector('.events-section');
+                  eventsSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              />
+            </motion.div>
+            <motion.div 
+              className="profile-content"
+              initial={{ opacity: 0, x: event.reverse ? 50 : -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+              <ul className="profile-highlights">
+                {event.highlights.map((highlight, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * idx }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 10 }}
+                  >
+                    {highlight}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        ))}
+      </motion.section>
+
+      {/* Stats Section */}
+      <motion.section 
+        style={{
+          padding: '6rem 2rem',
+          background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1))',
+          textAlign: 'center'
+        }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.h2 className="section-title" variants={itemVariants}>
+          Event Statistics
+        </motion.h2>
+        
+        <motion.div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '3rem',
+            maxWidth: '1000px',
+            margin: '4rem auto 0'
+          }}
+          variants={containerVariants}
+        >
+          {[
+            { number: '5+', label: 'Technical Events', icon: '🚀' },
+            { number: '500+', label: 'Expected Participants', icon: '👥' },
+            { number: '3', label: 'Days of Innovation', icon: '📅' },
+            { number: '₹50K+', label: 'Prize Pool', icon: '🏆' }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.1, y: -10 }}
+              style={{
+                background: 'rgba(10, 20, 40, 0.8)',
+                padding: '2rem',
+                borderRadius: '20px',
+                border: '1px solid rgba(0, 255, 255, 0.3)',
+                backdropFilter: 'blur(20px)'
               }}
-            />
-          </div>
-          <div className="profile-content">
-            <h3 className="accent">TECHNOVERSE</h3>
-            <p>Our dedicated event coordinators ensure seamless organization and execution of all symposium activities. With years of experience in managing large-scale technical events, they bring expertise and innovation to ALTRUIXX 2K25.</p>
-            <ul className="profile-highlights">
-              <li>🎯 Event Planning & Coordination</li>
-              <li>📅 Schedule Management</li>
-              <li>🤝 Participant Support</li>
-            </ul>
-          </div>
+            >
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{stat.icon}</div>
+              <motion.div
+                style={{
+                  fontSize: '3rem',
+                  fontWeight: 'bold',
+                  background: 'linear-gradient(135deg, #00ffff, #0080ff)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  marginBottom: '0.5rem'
+                }}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.1 * index }}
+                viewport={{ once: true }}
+              >
+                {stat.number}
+              </motion.div>
+              <div style={{ color: '#b0c4de', fontSize: '1.1rem', fontWeight: '600' }}>
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
-
-        {/* Profile 2 */}
-        <motion.div 
-          className="profile-row reverse"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className="profile-container">
-            <ProfileCard
-              name="PROMPT NOT FOUND"
-              title="Technical Event"
-              handle="techteam"
-              status="Technical Experts"
-              contactText="Tech Support"
-              avatarUrl="/assets/srm.png"
-              enableTilt={true}
-              enableMobileTilt={false}
-            />
-          </div>
-          <div className="profile-content">
-            <h3 className="accent">404 - PROMPT NOT FOUND</h3>
-            <p>Our technical team handles all aspects of digital infrastructure and technical event management. They ensure smooth operation of workshops, competitions, and online platforms throughout the symposium.</p>
-            <ul className="profile-highlights">
-              <li>💻 Technical Workshop Support</li>
-              <li>🛠️ Infrastructure Management</li>
-              <li>🔧 Real-time Problem Solving</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Profile 3 */}
-        <motion.div 
-          className="profile-row"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="profile-container">
-            <ProfileCard
-              name="THE CIPHER CUT"
-              title="Non-Technical Event"
-              handle="creativeteam"
-              status="Creative Directors"
-              contactText="Contact Creative"
-              avatarUrl="/assets/srm.png"
-              enableTilt={true}
-              enableMobileTilt={false}
-            />
-          </div>
-          <div className="profile-content">
-            <h3 className="accent">THE CIPHER CUT</h3>
-            <p>The creative team brings ALTRUIXX 2K25 to life through stunning visuals and engaging content. They handle all aspects of branding, design, and marketing communications.</p>
-            <ul className="profile-highlights">
-              <li>🎨 Visual Design & Branding</li>
-              <li>📱 Social Media Management</li>
-              <li>📢 Marketing Communications</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Profile 4 */}
-        <motion.div 
-          className="profile-row reverse"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <div className="profile-container">
-            <ProfileCard
-              name="JADE JOURNEY"
-              title="Non-Technical Event"
-              handle="relations"
-              status="Student Coordinators"
-              contactText="Contact Team"
-              avatarUrl="/assets/srm.png"
-              enableTilt={true}
-              enableMobileTilt={false}
-            />
-          </div>
-          <div className="profile-content">
-            <h3 className="accent">JADE JOURNEY</h3>
-            <p>JADE JOURNEY is an intensive bootcamp covering modern web development technologies including React, Node.js, MongoDB, and cloud deployment. Participants will build full-stack applications and learn best practices for scalable web development. Bring your laptop and be ready to code!</p>
-            <ul className="profile-highlights">
-              <li>👥 Participant Coordination</li>
-              <li>❓ Query Resolution</li>
-              <li>📋 Registration Support</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Profile 5 */}
-        <motion.div 
-          className="profile-row"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className="profile-container">
-            <ProfileCard
-              name="PAPER PRESENTATION"
-              title="Academic Mentors"
-              handle="faculty"
-              status="Senior Advisors"
-              contactText="Contact Faculty"
-              avatarUrl="/assets/srm.png"
-              enableTilt={true}
-              enableMobileTilt={false}
-            />
-          </div>
-          <div className="profile-content">
-            <h3 className="accent">PAPER PRESENTATION</h3>
-            <p>Our esteemed faculty advisors provide guidance and mentorship to ensure the symposium meets high academic standards and provides valuable learning experiences.</p>
-            <ul className="profile-highlights">
-              <li>📚 Academic Guidance</li>
-              <li>🎓 Expert Mentorship</li>
-              <li>🔍 Quality Assurance</li>
-            </ul>
-          </div>
-        </motion.div>
-      </section>
-            
+      </motion.section>
 
       {/* Contact Section */}
-      <section className="contact-section">
+      <motion.section 
+        className="contact-section"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <div className="contact-wrapper">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className="section-title accent">Get In Touch</h2>
-            <div className="contact-grid">
-              <div>
-                <h3 className="accent">Contact Information</h3>
-                <div className="contact-info">
-                  <span>📧</span>
+          <motion.h2 className="section-title" variants={itemVariants}>
+            Get In Touch
+          </motion.h2>
+          
+          <motion.div className="contact-grid" variants={containerVariants}>
+            <motion.div variants={itemVariants}>
+              <h3 style={{ 
+                color: '#00ffff', 
+                marginBottom: '2rem', 
+                fontSize: '1.8rem',
+                fontWeight: '700'
+              }}>
+                Contact Information
+              </h3>
+              
+              {[
+                { icon: '📧', title: 'Email', info: 'altruixx@srmvec.edu' },
+                { icon: '📱', title: 'Phone', info: '+91-9876543210' },
+                { icon: '📍', title: 'Address', info: 'SRM Valliammai Engineering College\nKattankulathur, Chennai - 603203' },
+                { icon: '🕐', title: 'Event Dates', info: 'March 15-19, 2025\nRegistration Deadline: March 10, 2025' }
+              ].map((contact, index) => (
+                <motion.div
+                  key={index}
+                  className="contact-info"
+                  variants={itemVariants}
+                  whileHover={{ x: 10, scale: 1.02 }}
+                >
+                  <span style={{ fontSize: '2rem' }}>{contact.icon}</span>
                   <div>
-                    <strong>Email</strong>
-                    <p>altruixx@srmvec.edu</p>
-                  </div>
-                </div>
-                <div className="contact-info">
-                  <span>📱</span>
-                  <div>
-                    <strong>Phone</strong>
-                    <p>+91-9876543210</p>
-                  </div>
-                </div>
-                <div className="contact-info">
-                  <span>📍</span>
-                  <div>
-                    <strong>Address</strong>
-                    <p>
-                      SRM Valliammai Engineering College<br />
-                      Kattankulathur, Chennai - 603203
+                    <strong>{contact.title}</strong>
+                    <p style={{ 
+                      margin: 0, 
+                      color: '#b0c4de',
+                      whiteSpace: 'pre-line',
+                      lineHeight: '1.6'
+                    }}>
+                      {contact.info}
                     </p>
                   </div>
+                </motion.div>
+              ))}
+
+              <motion.div 
+                variants={itemVariants}
+                style={{ marginTop: '3rem' }}
+              >
+                <h4 style={{ 
+                  color: '#00ffff', 
+                  marginBottom: '1.5rem',
+                  fontSize: '1.4rem',
+                  fontWeight: '600'
+                }}>
+                  Follow Us
+                </h4>
+                <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+                  {[
+                    { name: '💼 LinkedIn', url: 'https://linkedin.com' },
+                    { name: '📷 Instagram', url: 'https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA==' },
+                    { name: '📘 Facebook', url: 'https://facebook.com' },
+                    { name: '🐦 Twitter', url: 'https://twitter.com' }
+                  ].map((social, index) => (
+                    <motion.a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#00ffff',
+                        textDecoration: 'none',
+                        padding: '0.8rem 1.5rem',
+                        border: '1px solid #00ffff',
+                        borderRadius: '25px',
+                        transition: 'all 0.3s ease',
+                        fontSize: '1rem',
+                        fontWeight: '600'
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: '#00ffff',
+                        color: '#0a0a0f'
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {social.name}
+                    </motion.a>
+                  ))}
                 </div>
-                <div className="contact-info">
-                  <span>🕐</span>
-                  <div>
-                    <strong>Event Dates</strong>
-                    <p>
-                      March 15-19, 2025<br />
-                      Registration Deadline: March 10, 2025
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* Quick Contact Form */}
-              <form className="contact-form" autoComplete="off" onSubmit={handleSubmit}>
-                <h3 className="accent">Quick Message</h3>
-                <div>
-                  <label htmlFor="name">Name</label>
-                  <input 
-                    id="name"
-                    name="name"
+              </motion.div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div variants={itemVariants}>
+              <h3 style={{ 
+                color: '#00ffff', 
+                marginBottom: '2rem',
+                fontSize: '1.8rem',
+                fontWeight: '700'
+              }}>
+                Send us a Message
+              </h3>
+              
+              <motion.form 
+                onSubmit={handleSubmit}
+                style={{
+                  background: 'rgba(10, 20, 40, 0.8)',
+                  padding: '2.5rem',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(0, 255, 255, 0.3)',
+                  backdropFilter: 'blur(20px)'
+                }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div style={{ marginBottom: '2rem' }}>
+                  <label style={{ 
+                    display: 'block',
+                    color: '#00ffff',
+                    marginBottom: '0.8rem',
+                    fontWeight: '600'
+                  }}>
+                    Name
+                  </label>
+                  <input
                     type="text"
+                    name="name"
                     value={form.name}
                     onChange={handleChange}
                     required
                     placeholder="Your Name"
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      border: '2px solid rgba(0, 255, 255, 0.3)',
+                      borderRadius: '10px',
+                      background: 'rgba(0, 255, 255, 0.1)',
+                      color: 'white',
+                      fontSize: '1rem'
+                    }}
                   />
                 </div>
-                <div>
-                  <label htmlFor="email">Email</label>
+
+                <div style={{ marginBottom: '2rem' }}>
+                  <label style={{ 
+                    display: 'block',
+                    color: '#00ffff',
+                    marginBottom: '0.8rem',
+                    fontWeight: '600'
+                  }}>
+                    Email
+                  </label>
                   <input
-                    id="email"
-                    name="email"
                     type="email"
+                    name="email"
                     value={form.email}
                     onChange={handleChange}
                     required
                     placeholder="your@email.com"
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      border: '2px solid rgba(0, 255, 255, 0.3)',
+                      borderRadius: '10px',
+                      background: 'rgba(0, 255, 255, 0.1)',
+                      color: 'white',
+                      fontSize: '1rem'
+                    }}
                   />
                 </div>
-                <div>
-                  <label htmlFor="message">Message</label>
+
+                <div style={{ marginBottom: '2rem' }}>
+                  <label style={{ 
+                    display: 'block',
+                    color: '#00ffff',
+                    marginBottom: '0.8rem',
+                    fontWeight: '600'
+                  }}>
+                    Message
+                  </label>
                   <textarea
-                    id="message"
                     name="message"
                     rows="4"
                     value={form.message}
                     onChange={handleChange}
                     required
                     placeholder="Your message here..."
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      border: '2px solid rgba(0, 255, 255, 0.3)',
+                      borderRadius: '10px',
+                      background: 'rgba(0, 255, 255, 0.1)',
+                      color: 'white',
+                      fontSize: '1rem',
+                      resize: 'vertical'
+                    }}
                   />
                 </div>
-                <button type="submit" className="send-btn">Send Message</button>
-                {sent && <div className="sent-message">Thank you! Message sent.</div>}
-                <div className="follow-links">
-                  <h4>Follow Us</h4>
-                  <div>
-                    <a href="https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA==" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-                    <a href="https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA==" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
-                  </div>
-                </div>
-              </form>
-            </div>
+
+                <motion.button 
+                  type="submit" 
+                  className="btn-primary"
+                  style={{ width: '100%' }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Send Message
+                </motion.button>
+                
+                {sent && (
+                  <motion.div 
+                    className="success-message"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{ marginTop: '1rem' }}
+                  >
+                    Thank you! Message sent successfully.
+                  </motion.div>
+                )}
+              </motion.form>
+            </motion.div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

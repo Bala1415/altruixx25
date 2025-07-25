@@ -34,7 +34,7 @@ const easeInOutCubic = (x) =>
   x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
 const ProfileCardComponent = ({
-  avatarUrl = "<Placeholder for avatar URL>",
+  avatarUrl = "/assets/poster.jpg", // Default to poster.jpg like the first card
   iconUrl = "<Placeholder for icon URL>",
   grainUrl = "<Placeholder for grain URL>",
   behindGradient,
@@ -42,15 +42,15 @@ const ProfileCardComponent = ({
   showBehindGradient = true,
   className = "",
   enableTilt = true,
-  enableMobileTilt = false,
+  enableMobileTilt = false, // Set to false like in the working version
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  name = "Javi A. Torres",
-  title = "Software Engineer",
-  handle = "javicodes",
-  status = "Online",
-  contactText = "Contact",
-  showUserInfo = true,
+  name = "Event Name",
+  title = "Technical Event",
+  handle = "eventteam",
+  status = "Lead Organizers", 
+  contactText = "Contact Team",
+  showUserInfo = true, // Set to true to match the first card
   onContactClick,
 }) => {
   const wrapRef = useRef(null);
