@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./countdown.css";
 
 const CountdownTimer = () => {
-  const [eventName, setEventName] = useState("");
-  const [eventDate, setEventDate] = useState("");
-  const [countdownStarted, setCountdownStarted] = useState(false);
+  const [eventName, setEventName] = useState("Altruixx 2025");
+  const [eventDate, setEventDate] = useState("2025-08-23T00:00");
+  const [countdownStarted, setCountdownStarted] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
     hours: 0,
@@ -92,16 +92,7 @@ const CountdownTimer = () => {
               <span className="label">Seconds</span>
             </div>
           </div>
-          <button 
-            className="reset-button"
-            onClick={() => {
-              setCountdownStarted(false);
-              setEventName("");
-              setEventDate("");
-            }}
-          >
-            Reset
-          </button>
+         
         </div>
       )}
     </div>

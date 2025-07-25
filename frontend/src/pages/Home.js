@@ -122,110 +122,18 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      {/* Events Preview Section */}
-      <motion.section 
-        className="events-section"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <motion.h2 className="section-title" variants={itemVariants}>
-          Featured Events
-        </motion.h2>
-        
-        <motion.div className="events-grid" variants={containerVariants}>
-          {[
-            {
-              id: 1,
-              title: "TECHNOVERSE",
-              description: "Multi-stage team-based technical event combining logical thinking, problem-solving, and real-world technical reasoning across three escalating rounds.",
-              category: "Competition",
-              icon: "🚀"
-            },
-            {
-              id: 2,
-              title: "404 - PROMPT NOT FOUND",
-              description: "Two-round event combining technical skills and creativity with Kahoot quiz, debugging challenges, and AI-powered storytelling.",
-              category: "Workshop",
-              icon: "🤖"
-            },
-            {
-              id: 3,
-              title: "THE CIPHER TEXT",
-              description: "Cybersecurity summit featuring interactive sessions on ethical hacking, penetration testing, and digital forensics.",
-              category: "Summit",
-              icon: "🔐"
-            }
-          ].map((event, index) => (
-            <motion.div
-              key={event.id}
-              className="event-card"
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.3 }
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
-                {event.icon}
-              </div>
-              <div style={{ 
-                display: 'inline-block',
-                background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                color: '#0a0a0f',
-                padding: '0.5rem 1rem',
-                borderRadius: '20px',
-                fontSize: '0.9rem',
-                fontWeight: 'bold',
-                marginBottom: '1rem'
-              }}>
-                {event.category}
-              </div>
-              <h3>{event.title}</h3>
-              <p>{event.description}</p>
-              <div className="event-actions">
-                <Link to={`/events/${event.id}`} className="btn-primary">
-                  Learn More
-                </Link>
-                <a 
-                  href="https://forms.google.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-secondary"
-                >
-                  Register Now
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-        
-        <motion.div 
-          style={{ textAlign: 'center', marginTop: '4rem' }}
-          variants={itemVariants}
-        >
-          <Link to="/events" className="cta-button">
-            View All Events
-          </Link>
-        </motion.div>
-      </motion.section>
 
       {/* Team Profiles Section */}
       <motion.section 
         className="team-profiles-section"
         variants={containerVariants}
-        initial="hidden"
+        initial="visible"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2rem' }}>
-          <motion.h2 className="section-title" variants={itemVariants} style={{ margin: 0 }}>
-            Our Events
-          </motion.h2>
-          <ProfileCard />
-        </div>
+        <motion.h2 className="section-title" variants={itemVariants}>
+          Our Events
+        </motion.h2>
         
         {[
           {
