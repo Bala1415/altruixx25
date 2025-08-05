@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from 'react';
 import "./countdown.css";
 
 const CountdownTimer = () => {
@@ -12,7 +12,7 @@ const CountdownTimer = () => {
     seconds: 0
   });
 
-  const calculateTimeRemaining = () => {
+  const calculateTimeRemaining = useCallback(() => {
     const difference = new Date(eventDate).getTime() - new Date().getTime();
     
     if (difference > 0) {
@@ -26,7 +26,7 @@ const CountdownTimer = () => {
       setTimeRemaining({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       setCountdownStarted(false);
     }
-  };
+  }, [eventDate]);
 
   useEffect(() => {
     let timer;
@@ -35,7 +35,7 @@ const CountdownTimer = () => {
       timer = setInterval(calculateTimeRemaining, 1000);
     }
     return () => clearInterval(timer);
-  }, [countdownStarted, eventDate]);
+  }, [countdownStarted, eventDate, calculateTimeRemaining]);
 
   const handleStartCountdown = (e) => {
     e.preventDefault();

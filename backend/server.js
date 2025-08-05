@@ -1,28 +1,45 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const twilio = require('twilio');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Initialize Twilio client
-const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+// Initialize Twilio client (optional)
+let twilioClient = null;
+const twilioSid = process.env.TWILIO_ACCOUNT_SID;
+const twilioToken = process.env.TWILIO_AUTH_TOKEN;
+
+if (twilioSid && twilioToken && 
+    twilioSid !== 'your_twilio_account_sid_here' && 
+    twilioToken !== 'your_twilio_auth_token_here' &&
+    twilioSid.startsWith('AC')) {
+  try {
+    const twilio = require('twilio');
+    twilioClient = twilio(twilioSid, twilioToken);
+    console.log('Twilio client initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize Twilio client:', error.message);
+  }
+} else {
+  console.log('Twilio credentials not properly configured - SMS notifications disabled');
+  console.log('To enable SMS: Set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN in .env file');
+}
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/symposium';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/altruixx-symposium';
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(MONGODB_URI)
 .then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('MongoDB connection error:', error));
+.catch((error) => {
+  console.error('MongoDB connection error:', error);
+  console.log('Note: Make sure MongoDB is running on your system');
+});
 
 // Events Schema
 const eventSchema = new mongoose.Schema({
@@ -128,16 +145,21 @@ app.post('/api/registrations', async (req, res) => {
     const registration = new Registration(req.body);
     const savedRegistration = await registration.save();
 
-    // Send WhatsApp message
-    try {
-      await twilioClient.messages.create({
-        body: `Thank you for registering for ALTRUIXX 2K25!\n\nRegistration Details:\nName: ${req.body.fullName}\nEvents: ${req.body.events.map(e => e.eventName).join(', ')}\n\nWe look forward to seeing you at the events!`,
-        from: `whatsapp:${process.env.TWILIO_WHATSAPP_NUMBER}`,
-        to: `whatsapp:+91${req.body.phone}`
-      });
-    } catch (twilioError) {
-      console.error('WhatsApp notification error:', twilioError);
-      // Continue with registration even if WhatsApp notification fails
+    // Send WhatsApp message (if Twilio is configured)
+    if (twilioClient && process.env.TWILIO_WHATSAPP_NUMBER) {
+      try {
+        await twilioClient.messages.create({
+          body: `Thank you for registering for ALTRUIXX 2K25!\n\nRegistration Details:\nName: ${req.body.fullName}\nEvents: ${req.body.events.map(e => e.eventName).join(', ')}\n\nWe look forward to seeing you at the events!`,
+          from: `whatsapp:${process.env.TWILIO_WHATSAPP_NUMBER}`,
+          to: `whatsapp:+91${req.body.phone}`
+        });
+        console.log('WhatsApp notification sent successfully');
+      } catch (twilioError) {
+        console.error('WhatsApp notification error:', twilioError);
+        // Continue with registration even if WhatsApp notification fails
+      }
+    } else {
+      console.log('WhatsApp notification skipped - Twilio not configured');
     }
     
     res.status(201).json({

@@ -332,210 +332,160 @@ const Home = () => {
               variants={itemVariants}
               style={{
                 textAlign: 'center',
-                color: '#00ffff',
+                color: '#ff00ff',
                 fontSize: '2.2rem',
-                marginBottom: '3rem',
+                marginBottom: '0.5rem',
                 fontWeight: '700'
               }}
             >
-              Event Leadership
+              ● STUDENT CO-ORDINATORS /INCHARGE
             </motion.h3>
             
             <motion.div 
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                gap: '3rem',
-                maxWidth: '900px',
-                margin: '0 auto'
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '2rem',
+                maxWidth: '600px',
+                margin: '2rem auto 0',
+                textAlign: 'center'
               }}
               variants={containerVariants}
             >
-              {/* President Card */}
+              {/* President */}
               <motion.div
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, rotateY: 5 }}
                 style={{
-                  background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 128, 255, 0.15))',
-                  padding: '3rem 2rem',
-                  borderRadius: '25px',
-                  border: '2px solid rgba(0, 255, 255, 0.3)',
-                  backdropFilter: 'blur(20px)',
-                  textAlign: 'center',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
-                <div style={{
-                  position: 'absolute',
-                  top: '-50%',
-                  left: '-50%',
-                  width: '200%',
-                  height: '200%',
-                  background: 'linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent)',
-                  animation: 'shimmer 3s infinite',
-                  transform: 'rotate(-45deg)'
-                }} />
-                
-                <div style={{
-                  width: '100px',
-                  height: '100px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                  margin: '0 auto 1.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '2.5rem',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  👑
-                </div> 
-                
-                <h4 style={{
-                  color: '#00ffff',
-                  fontSize: '1.8rem',
-                  fontWeight: '700',
-                  marginBottom: '0.5rem',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  President
-                </h4>
-                
-                <h5 style={{
                   color: 'white',
                   fontSize: '1.4rem',
-                  fontWeight: '600',
-                  marginBottom: '1rem',
-                  position: 'relative',
-                  zIndex: 2
+                  fontWeight: '300',
+                  lineHeight: '1.8'
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
+                  SARAN  (6383190482)
+                </div>
+                <div style={{ 
+                  fontSize: '1.3rem', 
+                  fontStyle: 'italic', 
+                  color: '#ff00ff',
+                  marginBottom: '1.5rem'
                 }}>
-                  [Saran]
-                </h5>
-                
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.8rem',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.8rem',
-                    color: '#b0c4de'
-                  }}>
-                    <span style={{ fontSize: '1.2rem' }}>📧</span>
-                    <span>president@altruixx.com</span>
-                  </div>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.8rem',
-                    color: '#b0c4de'
-                  }}>
-                    <span style={{ fontSize: '1.2rem' }}>📱</span>
-                    <span>+91-98765-43210</span>
-                  </div>
+                  PRESIDENT
                 </div>
               </motion.div>
 
-              {/* Vice President Card */}
+              {/* Vice President */}
               <motion.div
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, rotateY: -5 }}
                 style={{
-                  background: 'linear-gradient(135deg, rgba(0, 128, 255, 0.15), rgba(128, 0, 255, 0.15))',
-                  padding: '3rem 2rem',
-                  borderRadius: '25px',
-                  border: '2px solid rgba(0, 128, 255, 0.3)',
-                  backdropFilter: 'blur(20px)',
-                  textAlign: 'center',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
-                <div style={{
-                  position: 'absolute',
-                  top: '-50%',
-                  left: '-50%',
-                  width: '200%',
-                  height: '200%',
-                  background: 'linear-gradient(45deg, transparent, rgba(0, 128, 255, 0.1), transparent)',
-                  animation: 'shimmer 3s infinite reverse',
-                  transform: 'rotate(-45deg)'
-                }} />
-                
-                <div style={{
-                  width: '100px',
-                  height: '100px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #0080ff, #8000ff)',
-                  margin: '0 auto 1.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '2.5rem',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  🎖️
-                </div>
-                
-                <h4 style={{
-                  color: '#0080ff',
-                  fontSize: '1.8rem',
-                  fontWeight: '700',
-                  marginBottom: '0.5rem',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  Vice President
-                </h4>
-                
-                <h5 style={{
                   color: 'white',
                   fontSize: '1.4rem',
-                  fontWeight: '600',
-                  marginBottom: '1rem',
-                  position: 'relative',
-                  zIndex: 2
+                  fontWeight: '300',
+                  lineHeight: '1.8'
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
+                  KAAMESH (6382631461)
+                </div>
+                <div style={{ 
+                  fontSize: '1.3rem', 
+                  fontStyle: 'italic', 
+                  color: '#ff00ff',
+                  marginBottom: '1.5rem'
                 }}>
-                  [Vice President Name]
-                </h5>
-                
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.8rem',
-                  position: 'relative',
-                  zIndex: 2
+                  VICE PRESIDENT
+                </div>
+              </motion.div>
+
+              {/* Secretary */}
+              <motion.div
+                variants={itemVariants}
+                style={{
+                  color: 'white',
+                  fontSize: '1.4rem',
+                  fontWeight: '300',
+                  lineHeight: '1.8'
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
+                  ABINAYA (7806935580)
+                </div>
+                <div style={{ 
+                  fontSize: '1.3rem', 
+                  fontStyle: 'italic', 
+                  color: '#ff00ff',
+                  marginBottom: '1.5rem'
                 }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.8rem',
-                    color: '#b0c4de'
-                  }}>
-                    <span style={{ fontSize: '1.2rem' }}>📧</span>
-                    <span>vicepresident@altruixx.com</span>
-                  </div>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.8rem',
-                    color: '#b0c4de'
-                  }}>
-                    <span style={{ fontSize: '1.2rem' }}>📱</span>
-                    <span>+91-98765-43211</span>
-                  </div>
+                  SECRETARY
+                </div>
+              </motion.div>
+
+              {/* Vice Secretary */}
+              <motion.div
+                variants={itemVariants}
+                style={{
+                  color: 'white',
+                  fontSize: '1.4rem',
+                  fontWeight: '300',
+                  lineHeight: '1.8'
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
+                  SHALINI (7010040489)
+                </div>
+                <div style={{ 
+                  fontSize: '1.3rem', 
+                  fontStyle: 'italic', 
+                  color: '#ff00ff',
+                  marginBottom: '1.5rem'
+                }}>
+                  JOINT SECRETARY
+                </div>
+              </motion.div>
+
+              {/* Treasurer */}
+              <motion.div
+                variants={itemVariants}
+                style={{
+                  color: 'white',
+                  fontSize: '1.4rem',
+                  fontWeight: '300',
+                  lineHeight: '1.8'
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
+                  JEYAPRAKASH (7695931461)
+                </div>
+                <div style={{ 
+                  fontSize: '1.3rem', 
+                  fontStyle: 'italic', 
+                  color: '#ff00ff',
+                  marginBottom: '1.5rem'
+                }}>
+                  TREASURER
+                </div>
+              </motion.div>
+
+              {/* Vice Treasurer */}
+              <motion.div
+                variants={itemVariants}
+                style={{
+                  color: 'white',
+                  fontSize: '1.4rem',
+                  fontWeight: '300',
+                  lineHeight: '1.8'
+                }}
+              >
+                <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
+                  SANJAY.N (8825423058)
+                </div>
+                <div style={{ 
+                  fontSize: '1.3rem', 
+                  fontStyle: 'italic', 
+                  color: '#ff00ff'
+                }}>
+                  JOINTTRESURER
                 </div>
               </motion.div>
             </motion.div>
@@ -836,6 +786,203 @@ const Home = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Footer Section */}
+      <motion.footer
+        style={{
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 40, 0.95))',
+          padding: '4rem 2rem 2rem',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+        }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <motion.div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '3rem',
+              marginBottom: '3rem'
+            }}
+            variants={containerVariants}
+          >
+            {/* Left Section - Ready to Participate */}
+            <motion.div variants={itemVariants}>
+              <h3 style={{
+                fontSize: '2.5rem',
+                fontWeight: '300',
+                color: 'white',
+                marginBottom: '2rem',
+                lineHeight: '1.2'
+              }}>
+                Ready to<br />Participate?
+              </h3>
+              
+              <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.8rem',
+                  marginBottom: '1rem'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>📷</span>
+                  <span style={{ color: '#b0c4de', fontSize: '1.1rem' }}>
+                    Instagram: 
+                    <a 
+                      href="https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ 
+                        color: '#00ffff', 
+                        textDecoration: 'underline',
+                        marginLeft: '0.5rem'
+                      }}
+                    >
+                      taras_2k24
+                    </a>
+                  </span>
+                </div>
+                
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.8rem'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>📧</span>
+                  <a 
+                    href="mailto:srmvec@srmvalliammai.ac.in"
+                    style={{ 
+                      color: '#00ffff', 
+                      textDecoration: 'underline',
+                      fontSize: '1.1rem'
+                    }}
+                  >
+                    srmvec@srmvalliammai.ac.in
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Middle Section - Quick Links & Contact Info */}
+            <motion.div variants={itemVariants}>
+              <div style={{ marginBottom: '2.5rem' }}>
+                <h4 style={{
+                  color: 'white',
+                  fontSize: '1.4rem',
+                  fontWeight: '600',
+                  marginBottom: '1.5rem'
+                }}>
+                  Quick Link
+                </h4>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.8rem'
+                }}>
+                  {['About', 'Service', 'Blog'].map((item, index) => (
+                    <a
+                      key={index}
+                      href={`/${item.toLowerCase()}`}
+                      style={{
+                        color: '#b0c4de',
+                        textDecoration: 'underline',
+                        fontSize: '1rem',
+                        transition: 'color 0.3s ease'
+                      }}
+                      onMouseEnter={(e) => e.target.style.color = '#00ffff'}
+                      onMouseLeave={(e) => e.target.style.color = '#b0c4de'}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 style={{
+                  color: 'white',
+                  fontSize: '1.4rem',
+                  fontWeight: '600',
+                  marginBottom: '1.5rem'
+                }}>
+                  Contact Info
+                </h4>
+                <div style={{
+                  color: '#b0c4de',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>
+                  <div style={{ marginBottom: '0.5rem' }}>28TH SEPTEMBER 2024</div>
+                  <div style={{ marginBottom: '0.5rem', textDecoration: 'underline' }}>
+                    SRM VALLIAMMAI ENGINEERING COLLEGE
+                  </div>
+                  <div style={{ textDecoration: 'underline' }}>
+                    SRM Nagar, Kattankulathur - 603 203, Chengalpattu District, Tamil Nadu, India
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Section - Other Pages */}
+            <motion.div variants={itemVariants}>
+              <h4 style={{
+                color: 'white',
+                fontSize: '1.4rem',
+                fontWeight: '600',
+                marginBottom: '1.5rem'
+              }}>
+                Other Page
+              </h4>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.8rem'
+              }}>
+                {[
+                  { name: 'Privacy Policy', link: '/privacy-policy' },
+                  { name: 'Terms Of Use', link: '/terms-of-use' },
+                  { name: 'Support', link: '/support' }
+                ].map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.link}
+                    style={{
+                      color: '#b0c4de',
+                      textDecoration: 'underline',
+                      fontSize: '1rem',
+                      transition: 'color 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => e.target.style.color = '#00ffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#b0c4de'}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Footer Bottom */}
+          <motion.div
+            variants={itemVariants}
+            style={{
+              paddingTop: '2rem',
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{
+              color: '#b0c4de',
+              fontSize: '0.9rem'
+            }}>
+              © 2025 ALTRUIXX 2K25. All rights reserved. | Developed by SRM Valliammai Engineering College
+            </div>
+          </motion.div>
+        </div>
+      </motion.footer>
     </div>
   );
 };
