@@ -1,15 +1,12 @@
 {
-  "name": "college-symposium",
+  "name": "altruixx-2k25",
   "version": "1.0.0",
-  "description": "College Symposium Website with Registration System",
+  "description": "ALTRUIXX 2K25 - Technical Symposium Website",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd backend && npm run dev",
-    "client": "cd frontend && npm start",
-    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
-    "build": "cd frontend && npm run build:vercel",
-    "vercel-build": "npm run install-all && npm run build && cp -r frontend/build/* .",
-    "vercel-build-win": "npm run install-all && npm run build && xcopy /E /Y frontend\\build\\* ."
+    "start": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "install-frontend": "cd frontend && npm install",
+    "vercel-build": "npm run install-frontend && npm run build"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",

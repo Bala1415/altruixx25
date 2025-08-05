@@ -1,23 +1,63 @@
-# Vercel Deployment Guide
+# ALTRUIXX 2K25 - Vercel Deployment Guide
+
+## Frontend-Only Deployment
+
+This project has been configured for frontend-only deployment on Vercel using Google Forms for registration.
 
 ## Prerequisites
-1. Install Vercel CLI: `npm i -g vercel`
+1. Install Vercel CLI: `npm i -g vercel` (optional)
 2. Create a Vercel account at https://vercel.com
-3. Set up a MongoDB database (MongoDB Atlas recommended for free tier)
+3. Have your project pushed to GitHub
 
-## Environment Variables
-You need to set up these environment variables in your Vercel dashboard:
-
-### Required Environment Variables:
-- `MONGODB_URI`: Your MongoDB connection string
-- `JWT_SECRET`: A secure random string for JWT token signing
+## Configuration Files Updated
+- `vercel.json`: Configured for static React app deployment
+- `package.json`: Updated build scripts
+- `.vercelignore`: Excludes backend and unnecessary files
 
 ## Deployment Steps
 
-### Option 1: Deploy via Vercel CLI
-1. Open terminal in the project root
-2. Run `vercel login` and authenticate
-3. Run `vercel` and follow the prompts
+### Option 1: GitHub Integration (Recommended)
+
+1. **Push your code to GitHub** (if not already done):
+   ```bash
+   git add .
+   git commit -m "Configure for Vercel deployment"
+   git push origin main
+   ```
+
+2. **Connect to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Sign in with your GitHub account
+   - Click "New Project"
+   - Import your `altruixx25` repository
+   - Vercel will automatically detect it's a React app
+
+3. **Configuration** (should auto-detect):
+   - Framework Preset: Create React App
+   - Build Command: `cd frontend && npm run build`
+   - Output Directory: `frontend/build`
+   - Install Command: `cd frontend && npm install`
+
+### Option 2: Vercel CLI
+1. Run `vercel login` and authenticate
+2. Run `vercel --prod` from project root
+
+## Project Architecture
+- **Frontend**: React application with static deployment
+- **Registration**: Google Forms integration (no backend needed)
+- **Contact**: mailto links (no backend needed)
+
+## Post-Deployment Tasks
+1. Update Google Form URL in `Register.js` if needed
+2. Test all functionality on the live site
+3. Update any hardcoded URLs to your Vercel domain
+
+Your site will be available at: `https://your-project-name.vercel.app`
+
+## Troubleshooting
+- **Build fails**: Check `frontend/package.json` dependencies
+- **Routing issues**: Ensure `vercel.json` rewrites are correct
+- **Assets not loading**: Check `frontend/public/` folder structure
 4. Set environment variables when prompted or via Vercel dashboard
 
 ### Option 2: Deploy via Git Integration
