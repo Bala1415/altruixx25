@@ -117,6 +117,40 @@ const Home = () => {
         >
           ALTRUIXX 2K25
         </motion.h1>
+
+        {/* Featured Poster */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.7 }}
+          style={{
+            margin: '2rem 0',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <motion.img
+            src="/assets/poster.jpg"
+            alt="ALTRUIXX 2K25 Official Poster"
+            style={{
+              maxWidth: '500px',
+              width: '90%',
+              height: 'auto',
+              borderRadius: '20px',
+              border: '3px solid rgba(0, 255, 255, 0.5)',
+              boxShadow: '0 20px 40px rgba(0, 255, 255, 0.3)',
+              backdropFilter: 'blur(10px)'
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: '0 30px 60px rgba(0, 255, 255, 0.5)',
+              border: '3px solid rgba(0, 255, 255, 0.8)'
+            }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.div>
+
         {/* Countdown replaces description */}
         <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
         {/* Remove the <motion.p> description */}
@@ -413,7 +447,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  👨‍🏫
+                  
                 </div>
                 
                 <h4 style={{
@@ -1198,6 +1232,6 @@ const Home = () => {
       </motion.footer>
     </div>
   );
-};
+}
 
 export default Home;
