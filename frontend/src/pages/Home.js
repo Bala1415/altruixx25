@@ -35,6 +35,15 @@ const Home = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    // Create mailto link with form data
+    const subject = `Contact from ${form.name}`;
+    const body = `Name: ${form.name}%0D%0AEmail: ${form.email}%0D%0A%0D%0AMessage:%0D%0A${form.message}`;
+    const mailtoLink = `mailto:altruixx@srmvec.edu?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Show success message and reset form
     setSent(true);
     setForm({ name: '', email: '', message: '' });
     setTimeout(() => setSent(false), 5000);
@@ -1045,7 +1054,7 @@ const Home = () => {
                         marginLeft: '0.5rem'
                       }}
                     >
-                      taras_2k24
+                     altruixx_2k25
                     </a>
                   </span>
                 </div>
@@ -1064,7 +1073,7 @@ const Home = () => {
                       fontSize: '1.1rem'
                     }}
                   >
-                    srmvec@srmvalliammai.ac.in
+                   altruixx@gmail.com
                   </a>
                 </div>
               </div>
@@ -1119,7 +1128,7 @@ const Home = () => {
                   fontSize: '1rem',
                   lineHeight: '1.6'
                 }}>
-                  <div style={{ marginBottom: '0.5rem' }}>28TH SEPTEMBER 2024</div>
+                  <div style={{ marginBottom: '0.5rem' }}>23TH AUGUST 2025</div>
                   <div style={{ marginBottom: '0.5rem', textDecoration: 'underline' }}>
                     SRM VALLIAMMAI ENGINEERING COLLEGE
                   </div>

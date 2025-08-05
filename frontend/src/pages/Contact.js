@@ -22,8 +22,16 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
+    // Create mailto link with form data
+    const subject = `${formData.subject} - From ${formData.name}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    const mailtoLink = `mailto:altruixx@srmvec.edu?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Small delay to show loading state
     setTimeout(() => {
+      // Open default email client
+      window.location.href = mailtoLink;
+      
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -31,7 +39,7 @@ const Contact = () => {
       setTimeout(() => {
         setSubmitted(false);
       }, 5000);
-    }, 2000);
+    }, 1000);
   };
 
   const containerVariants = {
