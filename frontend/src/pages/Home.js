@@ -424,7 +424,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Ms.ABINAYA
+                  Dr. ABINAYA
                 </h4>
                 
                 <h5 style={{
@@ -435,7 +435,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Professor of practice
+                  Professor
                 </h5>
                 
                 <p style={{
@@ -446,7 +446,7 @@ const Home = () => {
                   zIndex: 2,
                   margin: 0
                 }}>
-                  Department of Artificial intelligence and Data Science
+                  Department of Artificial Intelligence and Data Science
                   <br />
                   <span style={{ fontWeight: '600', color: 'white' }}>
                     SRM Valliammai Engineering College
@@ -504,7 +504,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Dr.SRINIVASAN
+                  Dr. SRINIVASAN
                 </h4>
                 
                 <h5 style={{
@@ -515,7 +515,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Professor
+                  Associate Professor
                 </h5>
                 
                 <p style={{
@@ -526,7 +526,7 @@ const Home = () => {
                   zIndex: 2,
                   margin: 0
                 }}>
-                  Department of Artificial intelligence and Data Science
+                  Department of Artificial Intelligence and Data Science
                   <br />
                   <span style={{ fontWeight: '600', color: 'white' }}>
                     SRM Valliammai Engineering College
