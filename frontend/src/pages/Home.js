@@ -323,6 +323,210 @@ const Home = () => {
             Get In Touch
           </motion.h2>
 
+          {/* Staff Co-ordinators Section */}
+          <motion.div 
+            variants={containerVariants}
+            style={{ marginBottom: '5rem' }}
+          >
+            <motion.h3 
+              variants={itemVariants}
+              style={{
+                textAlign: 'center',
+                color: '#ff00ff',
+                fontSize: '2.2rem',
+                marginBottom: '1rem',
+                fontWeight: '700'
+              }}
+            >
+              ● Staff Co-ordinators
+            </motion.h3>
+            
+            <motion.p
+              variants={itemVariants}
+              style={{
+                textAlign: 'center',
+                color: 'white',
+                fontSize: '2rem',
+                fontWeight: '300',
+                marginBottom: '3rem',
+                fontStyle: 'italic'
+              }}
+            >
+              We're here to give you effective ideas.
+            </motion.p>
+            
+            <motion.div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '3rem',
+                maxWidth: '1000px',
+                margin: '0 auto'
+              }}
+              variants={containerVariants}
+            >
+              {/* Dr. S. Ramesh Card */}
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, y: -10 }}
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.1))',
+                  padding: '3rem 2rem',
+                  borderRadius: '25px',
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
+                  backdropFilter: 'blur(20px)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <div style={{
+                  position: 'absolute',
+                  top: '-50%',
+                  left: '-50%',
+                  width: '200%',
+                  height: '200%',
+                  background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                  animation: 'shimmer 3s infinite',
+                  transform: 'rotate(-45deg)'
+                }} />
+                
+                <div style={{
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #ff6b6b, #ee5a52)',
+                  margin: '0 auto 1.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '2.5rem',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  👨‍🏫
+                </div>
+                
+                <h4 style={{
+                  color: 'white',
+                  fontSize: '1.8rem',
+                  fontWeight: '700',
+                  marginBottom: '0.5rem',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  Ms.ABINAYA
+                </h4>
+                
+                <h5 style={{
+                  color: '#ff6b6b',
+                  fontSize: '1.3rem',
+                  fontWeight: '600',
+                  marginBottom: '1rem',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  Professor of practice
+                </h5>
+                
+                <p style={{
+                  color: '#b0c4de',
+                  fontSize: '1rem',
+                  lineHeight: '1.6',
+                  position: 'relative',
+                  zIndex: 2,
+                  margin: 0
+                }}>
+                  Department of Artificial intelligence and Data Science
+                  <br />
+                  <span style={{ fontWeight: '600', color: 'white' }}>
+                    SRM Valliammai Engineering College
+                  </span>
+                </p>
+              </motion.div>
+
+              {/* Dr. S. R. Preethi Card */}
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, y: -10 }}
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.1))',
+                  padding: '3rem 2rem',
+                  borderRadius: '25px',
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
+                  backdropFilter: 'blur(20px)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <div style={{
+                  position: 'absolute',
+                  top: '-50%',
+                  left: '-50%',
+                  width: '200%',
+                  height: '200%',
+                  background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                  animation: 'shimmer 3s infinite reverse',
+                  transform: 'rotate(-45deg)'
+                }} />
+                
+                <div style={{
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
+                  margin: '0 auto 1.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '2.5rem',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  👩‍🏫
+                </div>
+                
+                <h4 style={{
+                  color: 'white',
+                  fontSize: '1.8rem',
+                  fontWeight: '700',
+                  marginBottom: '0.5rem',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  Dr.SRINIVASAN
+                </h4>
+                
+                <h5 style={{
+                  color: '#4ecdc4',
+                  fontSize: '1.3rem',
+                  fontWeight: '600',
+                  marginBottom: '1rem',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  Professor
+                </h5>
+                
+                <p style={{
+                  color: '#b0c4de',
+                  fontSize: '1rem',
+                  lineHeight: '1.6',
+                  position: 'relative',
+                  zIndex: 2,
+                  margin: 0
+                }}>
+                  Department of Artificial intelligence and Data Science
+                  <br />
+                  <span style={{ fontWeight: '600', color: 'white' }}>
+                    SRM Valliammai Engineering College
+                  </span>
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
           {/* Leadership Section */}
           <motion.div 
             variants={containerVariants}
@@ -363,7 +567,7 @@ const Home = () => {
                 }}
               >
                 <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
-                  SARAN  (6383190482)
+                  SARAN  (9840809513)
                 </div>
                 <div style={{ 
                   fontSize: '1.3rem', 
@@ -409,7 +613,7 @@ const Home = () => {
                 }}
               >
                 <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
-                  ABINAYA (7806935580)
+                  ABINAYA (9087951148)
                 </div>
                 <div style={{ 
                   fontSize: '1.3rem', 
@@ -455,7 +659,7 @@ const Home = () => {
                 }}
               >
                 <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
-                  JEYAPRAKASH (7695931461)
+                  JEYAPRAKASH (7395835201)
                 </div>
                 <div style={{ 
                   fontSize: '1.3rem', 
