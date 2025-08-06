@@ -146,7 +146,8 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      {/* Team Profiles Section */} 
+      {/* Team Profiles Section */}
+      <motion.section 
         className="team-profiles-section"
         variants={containerVariants}
         initial="visible"
@@ -168,7 +169,7 @@ const Home = () => {
             title: "404 - PROMPT NOT FOUND",
             description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling",
             highlights: ["💻 Debug to discover", "🎨 Creative storytelling", "🤖AI prompt Engineering"],
-            image: "/assets/404.jpg",
+            image: "/assets/404/1.jpg",
             reverse: true
           },
           {
@@ -179,8 +180,8 @@ const Home = () => {
           },
           {
             title: "JADE JOURNEY",
-            description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
-            highlights: ["🌐 Full-Stack Development", "☁️ Cloud Deployment", "📱 Modern Frameworks"],
+            description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
+            highlights: ["📸Snap", " 🔎Hunt", "🙂Act"],
             image: "/assets/srm.png",
             reverse: true
           },
@@ -188,7 +189,7 @@ const Home = () => {
             title: "INTELLICA",
             description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice. Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
-            image: "/assets/srm.png"
+            image: "/assets/poster.jpg"
           }
         ].map((event, index) => (
           <motion.div
@@ -209,7 +210,7 @@ const Home = () => {
                 contactText="Learn More"
                 avatarUrl={event.image}
                 enableTilt={true}
-                enableMobileTilt={false}
+                enableMobileTilt={true}
                 onContactClick={() => {
                   const eventsSection = document.querySelector('.events-section');
                   eventsSection?.scrollIntoView({ behavior: 'smooth' });
@@ -366,7 +367,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Dr. ABINAYA
+                  Dr.Srinivasan
                 </h4>
                 
                 <h5 style={{
@@ -377,7 +378,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Professor
+                  Professor of Practice
                 </h5>
                 
                 <p style={{
@@ -446,7 +447,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Dr. SRINIVASAN
+                  Ms.Abinaya
                 </h4>
                 
                 <h5 style={{
@@ -457,7 +458,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Associate Professor
+                  Assitant Professor
                 </h5>
                 
                 <p style={{
@@ -640,7 +641,7 @@ const Home = () => {
                   fontStyle: 'italic', 
                   color: '#ff00ff'
                 }}>
-                  JOINT TRESURER
+                  JOINT TREASURER
                 </div>
               </motion.div>
             </motion.div>
@@ -682,10 +683,10 @@ const Home = () => {
                 backdropFilter: 'blur(20px)'
               }}>
                 {[
-                  { icon: '📧', title: 'Official Email', info: 'altruixx@srmvec.edu' },
+                  { icon: '📧', title: 'Official Email', info: 'altruixx@gmail.com' },
                   { icon: '📍', title: 'Venue', info: 'SRM Valliammai Engineering College\nKattankulathur, Chennai - 603203' },
-                  { icon: '🕐', title: 'Event Dates', info: 'March 15-19, 2025\nRegistration Deadline: March 10, 2025' },
-                  { icon: '🎯', title: 'Event Type', info: 'Technical Symposium\nWorkshops & Competitions' }
+                  { icon: '🕐', title: 'Event Dates', info: 'August 23, 2025' },
+                  { icon: '🎯', title: 'Event Type', info: 'Technical Symposium' }
                 ].map((contact, index) => (
                   <motion.div
                     key={index}
