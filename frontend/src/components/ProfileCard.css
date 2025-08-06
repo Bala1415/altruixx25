@@ -204,22 +204,7 @@
   pointer-events: none;
 }
 
-.pc-user-info {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 12px 14px;
-  pointer-events: auto;
-}
+
 
 .pc-user-details {
   display: flex;
@@ -364,13 +349,6 @@
     font-size: 14px;
   }
 
-  .pc-user-info {
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    padding: 10px 12px;
-  }
-
   .pc-mini-avatar {
     width: 28px;
     height: 28px;
@@ -413,14 +391,6 @@
     top: -8px;
   }
 
-  .pc-user-info {
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    padding: 8px 10px;
-    border-radius: 50px;
-  }
-
   .pc-mini-avatar {
     width: 24px;
     height: 24px;
@@ -459,10 +429,6 @@
     font-size: 11px;
   }
 
-  .pc-user-info {
-    padding: 6px 8px;
-    border-radius: 50px;
-  }
 
   .pc-mini-avatar {
     width: 20px;

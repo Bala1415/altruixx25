@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ProfileCard from '../components/ProfileCard';
 import CountdownTimer from '../components/countdown';
 
 const Home = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
   const [particles, setParticles] = useState([]);
 
   // Create floating particles effect
@@ -28,26 +26,6 @@ const Home = () => {
     const interval = setInterval(createParticles, 10000);
     return () => clearInterval(interval);
   }, []);
-
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    // Create mailto link with form data
-    const subject = `Contact from ${form.name}`;
-    const body = `Name: ${form.name}%0D%0AEmail: ${form.email}%0D%0A%0D%0AMessage:%0D%0A${form.message}`;
-    const mailtoLink = `mailto:altruixx@srmvec.edu?subject=${encodeURIComponent(subject)}&body=${body}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    // Show success message and reset form
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 5000);
-  }
 
   // Animation variants
   const containerVariants = {
@@ -153,21 +131,22 @@ const Home = () => {
 
         {/* Countdown replaces description */}
         <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
-        {/* Remove the <motion.p> description */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.1 }}
         >
-          <Link to="/events" className="cta-button">
-            Explore Events
-          </Link>
+          <button
+            className="cta-button"
+            onClick={() => window.open('https://forms.gle/3EY9HxsFXicxWfQE9', '_blank')}
+            style={{ cursor: 'pointer' }}
+          >
+            Register now
+          </button>
         </motion.div>
       </motion.section>
 
-
-      {/* Team Profiles Section */}
-      <motion.section 
+      {/* Team Profiles Section */} 
         className="team-profiles-section"
         variants={containerVariants}
         initial="visible"
@@ -207,7 +186,7 @@ const Home = () => {
           },
           {
             title: "INTELLICA",
-            description: " Ignite Ideas. Inspire Innovation.Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice
+            description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice. Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
             image: "/assets/srm.png"
           }
@@ -263,76 +242,6 @@ const Home = () => {
             </motion.div>
           </motion.div>
         ))}
-      </motion.section>
-
-      {/* Stats Section */}
-      <motion.section 
-        style={{
-          padding: '6rem 2rem',
-          background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1))',
-          textAlign: 'center'
-        }}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.h2 className="section-title" variants={itemVariants}>
-          Event Statistics
-        </motion.h2>
-        
-        <motion.div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '3rem',
-            maxWidth: '1000px',
-            margin: '4rem auto 0'
-          }}
-          variants={containerVariants}
-        >
-          {[
-            { number: '5+', label: 'Technical Events', icon: '🚀' },
-            { number: '500+', label: 'Expected Participants', icon: '👥' },
-            { number: '3', label: 'Days of Innovation', icon: '📅' },
-            { number: '₹50K+', label: 'Prize Pool', icon: '🏆' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.1, y: -10 }}
-              style={{
-                background: 'rgba(10, 20, 40, 0.8)',
-                padding: '2rem',
-                borderRadius: '20px',
-                border: '1px solid rgba(0, 255, 255, 0.3)',
-                backdropFilter: 'blur(20px)'
-              }}
-            >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{stat.icon}</div>
-              <motion.div
-                style={{
-                  fontSize: '3rem',
-                  fontWeight: 'bold',
-                  background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  marginBottom: '0.5rem'
-                }}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.1 * index }}
-                viewport={{ once: true }}
-              >
-                {stat.number}
-              </motion.div>
-              <div style={{ color: '#b0c4de', fontSize: '1.1rem', fontWeight: '600' }}>
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.section>
 
       {/* Contact Section */}
@@ -731,25 +640,30 @@ const Home = () => {
                   fontStyle: 'italic', 
                   color: '#ff00ff'
                 }}>
-                  JOINTTRESURER
+                  JOINT TRESURER
                 </div>
               </motion.div>
             </motion.div>
           </motion.div>
 
-          {/* Contact Information Grid */}
+          {/* Contact Information - Centered */}
           <motion.div 
             className="contact-grid" 
             variants={containerVariants}
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-              gap: '4rem',
+              display: 'flex',
+              justifyContent: 'center',
               alignItems: 'start'
             }}
           >
             {/* General Contact Information */}
-            <motion.div variants={itemVariants}>
+            <motion.div 
+              variants={itemVariants}
+              style={{
+                maxWidth: '600px',
+                width: '100%'
+              }}
+            >
               <h3 style={{ 
                 color: '#00ffff', 
                 marginBottom: '2.5rem', 
@@ -867,167 +781,6 @@ const Home = () => {
                   </div>
                 </motion.div>
               </div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div variants={itemVariants}>
-              <h3 style={{ 
-                color: '#00ffff', 
-                marginBottom: '2.5rem',
-                fontSize: '2rem',
-                fontWeight: '700',
-                textAlign: 'center'
-              }}>
-                Send us a Message
-              </h3>
-              
-              <motion.form 
-                onSubmit={handleSubmit}
-                style={{
-                  background: 'rgba(10, 20, 40, 0.8)',
-                  padding: '2.5rem',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(0, 255, 255, 0.3)',
-                  backdropFilter: 'blur(20px)'
-                }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block',
-                    color: '#00ffff',
-                    marginBottom: '0.8rem',
-                    fontWeight: '600',
-                    fontSize: '1.1rem'
-                  }}>
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your Name"
-                    style={{
-                      width: '100%',
-                      padding: '1.2rem',
-                      border: '2px solid rgba(0, 255, 255, 0.3)',
-                      borderRadius: '12px',
-                      background: 'rgba(0, 255, 255, 0.1)',
-                      color: 'white',
-                      fontSize: '1rem',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  />
-                </div>
-
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block',
-                    color: '#00ffff',
-                    marginBottom: '0.8rem',
-                    fontWeight: '600',
-                    fontSize: '1.1rem'
-                  }}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your@email.com"
-                    style={{
-                      width: '100%',
-                      padding: '1.2rem',
-                      border: '2px solid rgba(0, 255, 255, 0.3)',
-                      borderRadius: '12px',
-                      background: 'rgba(0, 255, 255, 0.1)',
-                      color: 'white',
-                      fontSize: '1rem',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  />
-                </div>
-
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block',
-                    color: '#00ffff',
-                    marginBottom: '0.8rem',
-                    fontWeight: '600',
-                    fontSize: '1.1rem'
-                  }}>
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows="5"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your message here..."
-                    style={{
-                      width: '100%',
-                      padding: '1.2rem',
-                      border: '2px solid rgba(0, 255, 255, 0.3)',
-                      borderRadius: '12px',
-                      background: 'rgba(0, 255, 255, 0.1)',
-                      color: 'white',
-                      fontSize: '1rem',
-                      resize: 'vertical',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  />
-                </div>
-
-                <motion.button 
-                  type="submit" 
-                  className="btn-primary"
-                  style={{ 
-                    width: '100%',
-                    padding: '1.2rem',
-                    fontSize: '1.1rem',
-                    fontWeight: '700',
-                    background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                    border: 'none',
-                    borderRadius: '12px',
-                    color: '#0a0a0f',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Send Message
-                </motion.button>
-                
-                {sent && (
-                  <motion.div 
-                    className="success-message"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    style={{ 
-                      marginTop: '1.5rem',
-                      padding: '1rem',
-                      background: 'rgba(0, 255, 0, 0.1)',
-                      border: '1px solid rgba(0, 255, 0, 0.3)',
-                      borderRadius: '10px',
-                      color: '#00ff00',
-                      textAlign: 'center',
-                      fontWeight: '600'
-                    }}
-                  >
-                    ✅ Thank you! Message sent successfully.
-                  </motion.div>
-                )}
-              </motion.form>
             </motion.div>
           </motion.div>
         </div>

@@ -1,6 +1,26 @@
-import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+// Example events data; replace with your actual data or import from another file
+const events = [
+  {
+    category: 'Tech',
+    title: 'Tech Conference 2024',
+    image: '/images/tech-conference.jpg',
+    date: '2024-07-15',
+    time: '10:00 AM',
+    venue: 'Main Hall',
+    eligibility: 'All Students',
+    prizes: 'Trophies, Certificates',
+    requirements: 'Laptop, Registration',
+    fullDescription: 'Join us for a day of tech talks and workshops.',
+    schedule: ['10:00 AM - Opening', '11:00 AM - Keynote', '1:00 PM - Workshops'],
+    judges: ['Dr. Smith', 'Prof. Johnson'],
+    instructors: null,
+    speakers: null
+  },
+  // Add more event objects as needed
+];
 
 const EventDetail = () => {
   const { id } = useParams();
