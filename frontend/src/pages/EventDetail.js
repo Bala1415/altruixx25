@@ -1,134 +1,147 @@
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
-// Events data matching the home page events
-const events = [
-  {
-    id: 0,
-    category: 'Tech',
-    title: 'TECHNOVERSE',
-    image: '/assets/poster.jpg',
-    date: 'March 15, 2025',
-    time: '10:00 AM - 5:00 PM',
-    venue: 'SRM Valliammai Engineering College',
-    eligibility: 'All Engineering Students',
-    prizes: 'Cash Prizes, Certificates, Trophies',
-    requirements: 'Laptop, Valid ID, Registration',
-    fullDescription: '404 prompt not found is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling. This is a multi-stage competition featuring data analysis challenges and ML implementation.',
-    schedule: [
-      '10:00 AM - Registration & Welcome',
-      '11:00 AM - Opening Ceremony',
-      '12:00 PM - Quiz Round 1',
-      '2:00 PM - Creative Coding Round',
-      '4:00 PM - AI Visual Generation',
-      '5:00 PM - Results & Prize Distribution'
-    ],
-    judges: ['Dr. Abinaya', 'Dr. Srinivasan', 'Industry Expert Panel'],
-    instructors: null,
-    speakers: null
-  },
-  {
-    id: 1,
-    category: 'Tech',
-    title: '404 - PROMPT NOT FOUND',
-    image: '/assets/404/1.jpg',
-    date: 'March 16, 2025',
-    time: '9:00 AM - 4:00 PM',
-    venue: 'SRM Valliammai Engineering College',
-    eligibility: 'All Engineering Students',
-    prizes: 'Cash Prizes, Certificates, Internship Opportunities',
-    requirements: 'Programming Knowledge, Laptop, Creative Mind',
-    fullDescription: '404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling. Participants will debug code, create stories, and use AI prompt engineering.',
-    schedule: [
-      '9:00 AM - Registration',
-      '10:00 AM - Technical Quiz',
-      '12:00 PM - Debug Challenge',
-      '2:00 PM - Creative Storytelling',
-      '3:00 PM - AI Prompt Engineering',
-      '4:00 PM - Final Presentation'
-    ],
-    judges: ['Technical Experts', 'AI Specialists', 'Creative Directors'],
-    instructors: null,
-    speakers: null
-  },
-  {
-    id: 2,
-    category: 'Cybersecurity',
-    title: 'THE CIPHER TEXT',
-    image: '/assets/srm.png',
-    date: 'March 17, 2025',
-    time: '10:00 AM - 6:00 PM',
-    venue: 'SRM Valliammai Engineering College',
-    eligibility: 'Computer Science & IT Students',
-    prizes: 'Security Certifications, Cash Prizes, Job Opportunities',
-    requirements: 'Cybersecurity Basics, Laptop, Kali Linux (Optional)',
-    fullDescription: 'Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations. Learn about cybersecurity focus, ethical hacking techniques, and digital forensics methods.',
-    schedule: [
-      '10:00 AM - Registration & Setup',
-      '11:00 AM - Ethical Hacking Workshop',
-      '1:00 PM - Penetration Testing Demo',
-      '3:00 PM - Digital Forensics Session',
-      '5:00 PM - Hands-on Challenges',
-      '6:00 PM - Closing & Awards'
-    ],
-    judges: ['Cybersecurity Professionals', 'Ethical Hackers', 'Digital Forensics Experts'],
-    instructors: null,
-    speakers: ['Industry Security Experts', 'Certified Ethical Hackers']
-  },
-  {
-    id: 3,
-    category: 'Web Development',
-    title: 'JADE JOURNEY',
-    image: '/assets/srm.png',
-    date: 'March 18, 2025',
-    time: '9:00 AM - 5:00 PM',
-    venue: 'SRM Valliammai Engineering College',
-    eligibility: 'All Engineering Students',
-    prizes: 'Development Tools, Hosting Credits, Certificates',
-    requirements: 'Basic Programming, Laptop, Code Editor',
-    fullDescription: 'Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies. Experience full-stack development, cloud deployment, and modern frameworks.',
-    schedule: [
-      '9:00 AM - Registration',
-      '10:00 AM - React Fundamentals',
-      '12:00 PM - Node.js Backend',
-      '2:00 PM - MongoDB Database',
-      '4:00 PM - Cloud Deployment',
-      '5:00 PM - Project Showcase'
-    ],
-    judges: null,
-    instructors: ['Full-Stack Developers', 'Cloud Architects', 'Senior Engineers'],
-    speakers: null
-  },
-  {
-    id: 4,
-    category: 'Research',
-    title: 'INTELLICA',
-    image: '/assets/srm.png',
-    date: 'March 19, 2025',
-    time: '10:00 AM - 4:00 PM',
-    venue: 'SRM Valliammai Engineering College',
-    eligibility: 'All Students with Research Papers',
-    prizes: 'Research Grants, Publication Opportunities, Certificates',
-    requirements: 'Research Paper, Presentation, Valid ID',
-    fullDescription: 'Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It\'s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it\'s AI, green tech, or futuristic systems — if you\'ve got the vision, Intellica is your voice. Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.',
-    schedule: [
-      '10:00 AM - Registration & Setup',
-      '11:00 AM - Paper Presentations Batch 1',
-      '1:00 PM - Paper Presentations Batch 2',
-      '3:00 PM - Expert Panel Discussion',
-      '4:00 PM - Awards & Recognition'
-    ],
-    judges: ['Research Professors', 'Industry Researchers', 'Academic Experts'],
-    instructors: null,
-    speakers: null
-  }
-];
 
 const EventDetail = () => {
   const { id } = useParams();
   
-  // Find event by ID
-  const event = events.find(event => event.id === parseInt(id));
+  const events = {
+    1: {
+      title: "TECHNOVERSE",
+      description: "Showcase your innovative ideas and compete with the brightest minds in technology. Present your solutions to real-world problems and get a chance to win exciting prizes.",
+      fullDescription: "The Tech Innovation Challenge is our flagship competition designed to foster creativity and innovation among students. Participants will work in teams to develop solutions for real-world problems using cutting-edge technologies. The challenge spans across various domains including healthcare, education, environment, and social impact. Teams will have access to mentors from leading tech companies and will present their solutions to a panel of industry experts.",
+      date: "March 15, 2025",
+      time: "10:00 AM - 4:00 PM",
+      venue: "Main Auditorium",
+      category: "Competition",
+      eligibility: "All students",
+      prizes: "₹50,000 cash prizes",
+      requirements: "Team of 2-4 members, Prototype/Demo required",
+      schedule: [
+        "10:00 AM - Registration & Team Check-in",
+        "10:30 AM - Opening Ceremony & Rules Briefing",
+        "11:00 AM - Problem Statement Release",
+        "11:30 AM - 2:00 PM - Development Phase",
+        "2:00 PM - 3:00 PM - Presentations",
+        "3:00 PM - 3:30 PM - Judging & Evaluation",
+        "3:30 PM - 4:00 PM - Awards Ceremony"
+      ],
+      judges: [
+        "Dr. Sarah Johnson - CTO, TechCorp",
+        "Mr. Rahul Sharma - Senior Engineer, Google",
+        "Ms. Priya Patel - Startup Founder & Investor"
+      ],
+      image: "/assets/404/technoverse.jpg"
+    },
+    2: {
+      title: "404 - PROMPT NOT FOUND",
+      description: "Comprehensive hands-on workshop covering the latest trends in AI and ML. Learn from industry experts and build practical projects.",
+      fullDescription: "This intensive workshop provides a deep dive into the world of Artificial Intelligence and Machine Learning. Participants will learn about neural networks, deep learning algorithms, computer vision, and natural language processing through hands-on exercises and real-world case studies. The workshop includes practical sessions using Python, TensorFlow, and PyTorch frameworks.",
+      date: "March 16, 2025",
+      time: "9:00 AM - 5:00 PM",
+      venue: "Computer Science Lab",
+      category: "Workshop",
+      eligibility: "Basic programming knowledge required",
+      prizes: "Certificates and internship opportunities",
+      requirements: "Laptop with Python installed",
+      schedule: [
+        "9:00 AM - Introduction to AI/ML",
+        "10:00 AM - Python for Data Science",
+        "11:30 AM - Neural Networks Basics",
+        "1:00 PM - Lunch Break",
+        "2:00 PM - Deep Learning with TensorFlow",
+        "3:30 PM - Computer Vision Project",
+        "4:30 PM - Q&A and Networking"
+      ],
+      instructors: [
+        "Dr. Michael Chen - AI Research Scientist",
+        "Ms. Anjali Gupta - ML Engineer, Microsoft",
+        "Mr. David Kim - Data Scientist, Netflix"
+      ],
+      image: "/assets/404/1.jpg"
+    },
+    3: {
+      title: "Cybersecurity Summit",
+      description: "Explore the world of cybersecurity, ethical hacking, and data protection. Interactive sessions and live demonstrations.",
+      fullDescription: "The Cybersecurity Summit brings together security professionals, researchers, and students to discuss the latest threats, defense mechanisms, and best practices in cybersecurity. The summit features interactive workshops on penetration testing, vulnerability assessment, and digital forensics with live demonstrations of attack vectors and defense strategies.",
+      date: "March 17, 2025",
+      time: "11:00 AM - 3:00 PM",
+      venue: "Conference Hall A",
+      category: "Summit",
+      eligibility: "CS/IT students preferred",
+      prizes: "Industry certifications",
+      requirements: "Basic networking knowledge",
+      schedule: [
+        "11:00 AM - Cybersecurity Landscape Overview",
+        "11:45 AM - Ethical Hacking Demonstration",
+        "12:30 PM - Penetration Testing Workshop",
+        "1:15 PM - Lunch Break",
+        "2:00 PM - Digital Forensics Session",
+        "2:45 PM - Industry Panel Discussion"
+      ],
+      speakers: [
+        "Mr. Alex Thompson - Cybersecurity Consultant",
+        "Ms. Kavya Reddy - Security Analyst, Cisco",
+        "Dr. Robert Wilson - Cybersecurity Professor"
+      ],
+      image: "/assets/404/cybersecurity_summit.jpg"
+    },
+    4: {
+      title: "Web Development Bootcamp",
+      description: "Intensive bootcamp covering modern web development technologies including React, Node.js, and cloud deployment.",
+      fullDescription: "This comprehensive bootcamp covers the complete web development stack from frontend to backend and deployment. Participants will learn React for frontend development, Node.js and Express for backend services, MongoDB for database management, and cloud deployment strategies using AWS and Vercel.",
+      date: "March 18, 2025",
+      time: "10:00 AM - 6:00 PM",
+      venue: "IT Laboratory",
+      category: "Bootcamp",
+      eligibility: "Basic HTML/CSS knowledge",
+      prizes: "Project showcase opportunity",
+      requirements: "Laptop with code editor",
+      schedule: [
+        "10:00 AM - Modern JavaScript Fundamentals",
+        "11:30 AM - React Components & Hooks",
+        "1:00 PM - Lunch Break",
+        "2:00 PM - Node.js & Express Backend",
+        "3:30 PM - Database Integration",
+        "4:30 PM - Deployment & Best Practices",
+        "5:30 PM - Project Showcase"
+      ],
+      instructors: [
+        "Mr. James Anderson - Full Stack Developer",
+        "Ms. Sneha Joshi - React Specialist",
+        "Mr. Tom Miller - Backend Architect"
+      ],
+      image: "/assets/404/web_dev_bootcamp.jpg"
+    },
+    5: {
+      title: "Startup Pitch Competition",
+      description: "Present your startup ideas to a panel of investors and industry leaders. Win exciting prizes and potential funding.",
+      fullDescription: "The Startup Pitch Competition provides a platform for aspiring entrepreneurs to present their business ideas to experienced investors and industry leaders. Participants will showcase their business models, market analysis, financial projections, and growth strategies. The competition includes mentorship sessions and networking opportunities with successful entrepreneurs.",
+      date: "March 19, 2025",
+      time: "2:00 PM - 6:00 PM",
+      venue: "Business Center",
+      category: "Competition",
+      eligibility: "All students and recent graduates",
+      prizes: "Funding opportunities up to ₹5 lakhs",
+      requirements: "Business plan and pitch deck",
+      schedule: [
+        "2:00 PM - Registration & Mentorship Session",
+        "2:30 PM - Pitch Presentations (Round 1)",
+        "3:30 PM - Break & Networking",
+        "4:00 PM - Final Pitch Presentations",
+        "5:00 PM - Investor Feedback Session",
+        "5:30 PM - Awards & Closing Ceremony"
+      ],
+      judges: [
+        "Mr. Vikram Shah - Angel Investor",
+        "Ms. Meera Kapoor - Venture Capitalist",
+        "Dr. Suresh Kumar - Startup Accelerator Director"
+      ],
+      image: "/assets/404/startup_pitch.jpg"
+    }
+  };
+
+  const event = events[id];
 
   if (!event) {
     return (
@@ -166,26 +179,6 @@ const EventDetail = () => {
         </div>
         
         <h1 style={{ color: '#764ba2', marginBottom: '1rem' }}>{event.title}</h1>
-        
-        {/* Event Image Display */}
-        <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-          <motion.img
-            src={event.image}
-            alt={event.title}
-            style={{
-              width: '100%',
-              maxWidth: '600px',
-              height: 'auto',
-              borderRadius: '15px',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-              border: '3px solid rgba(118, 75, 162, 0.2)'
-            }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-          />
-        </div>
         
         <div style={{ marginBottom: '2rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>

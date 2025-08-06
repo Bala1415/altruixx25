@@ -42,7 +42,7 @@ const ProfileCardComponent = ({
   showBehindGradient = true,
   className = "",
   enableTilt = true,
-  enableMobileTilt = false, // Set to false like in the working version
+  enableMobileTilt = true, // Set to false like in the working version
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
   name = "Event Name",

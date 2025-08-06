@@ -4,7 +4,7 @@ import "./Register.css";
 
 const Register = () => {
   // Google Form URL - Replace this with your actual Google Form URL
-  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdNZoaoSEkNWg45ZY6obMOttfUkYc7X5jpUtoIkCH31hghlVw/viewform";
+  const GOOGLE_FORM_URL = "https://forms.gle/your-google-form-id";
 
   const handleRegisterClick = () => {
     // Open Google Form in a new tab
@@ -14,7 +14,7 @@ const Register = () => {
   const events = [
     { id: 1, name: "TECHNOVERSE", description: "Flagship competition with algorithmic problems and ML techniques" },
     { id: 2, name: "404 - PROMPT NOT FOUND", description: "Technical skills workshop with debugging challenges" },
-    { id: 3, name: "THE CIPHER CUT", description: "Cybersecurity summit with ethical hacking and digital forensics" },
+    { id: 3, name: "THE CIPHER TEXT", description: "Cybersecurity summit with ethical hacking and digital forensics" },
     { id: 4, name: "JADE JOURNEY", description: "Web development bootcamp with modern technologies" },
     { id: 5, name: "PAPER PRESENTATION", description: "Academic presentation platform for research showcase" }
   ];

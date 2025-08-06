@@ -1,10 +1,49 @@
+# Backend folder - not needed for frontend-only deployment
 backend/
+backend/**/*
+**/backend/**
+**/backend/**/*
+
+# Node modules
 node_modules/
-.git/
-*.log
+**/node_modules/
+
+# Environment files
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-README.md
+**/.env*
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Git
+.git/
 .gitignore
+
+# Documentation
+README.md
+*.md
+
+# Package lock files at root (we only need frontend ones)
+package-lock.json
+
+# Development files
+.vscode/
+.idea/
+
+# API and server files
+api/
+server/
+**/api/**
+**/server/**
+*.server.js
+**/server.js
+
+# Batch files
+*.bat
