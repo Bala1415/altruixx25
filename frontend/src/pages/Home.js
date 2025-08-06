@@ -206,7 +206,7 @@ const Home = () => {
           },
           {
             title: "INTELLICA",
-            description: "Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
+            description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice",
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
             image: "/assets/intellica/logo.jpg"
           }
