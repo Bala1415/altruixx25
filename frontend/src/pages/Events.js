@@ -428,7 +428,7 @@ techniques using modern tools and technologies.`,
             Contact Us
           </Link>
           <motion.a
-            href="https://forms.google.com"
+            href="https://forms.gle/3EY9HxsFXicxWfQE9"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
