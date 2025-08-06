@@ -181,15 +181,15 @@ const Home = () => {
         {[
           {
             title: "TECHNOVERSE",
-            description: "Our flagship competition that challenges participants with algorithmic problems, data analysis, and machine learning techniques using modern tools and technologies.",
+            description: "404 prompt not found is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling",
             highlights: ["🎯 Multi-stage Competition", "📊 Data Analysis Challenges", "🤖 ML Implementation"],
             image: "/assets/poster.jpg"
           },
           {
             title: "404 - PROMPT NOT FOUND",
-            description: "An innovative workshop combining technical skills with creativity, featuring debugging challenges and AI-powered content generation.",
-            highlights: ["💻 Technical Skills Assessment", "🎨 Creative Challenges", "🔧 Debugging Expertise"],
-            image: "/assets/srm.png",
+            description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling",
+            highlights: ["💻 Debug to discover", "🎨 Creative storytelling", "🤖AI prompt Engineering"],
+            image: "/assets/404.jpg",
             reverse: true
           },
           {
@@ -206,8 +206,8 @@ const Home = () => {
             reverse: true
           },
           {
-            title: "PAPER PRESENTATION",
-            description: "Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
+            title: "INTELLICA",
+            description: " Ignite Ideas. Inspire Innovation.Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
             image: "/assets/srm.png"
           }
@@ -227,7 +227,6 @@ const Home = () => {
                 name={event.title}
                 title="Technical Event"
                 handle={event.title.toLowerCase().replace(/\s+/g, '')}
-                status="Available"
                 contactText="Learn More"
                 avatarUrl={event.image}
                 enableTilt={true}
