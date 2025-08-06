@@ -141,8 +141,8 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      {/* Team Profiles Section */}
-      <motion.section 
+      {/* Team Profiles Section */} 
+      <motion.section
         className="team-profiles-section"
         variants={containerVariants}
         initial="visible"
@@ -164,8 +164,7 @@ const Home = () => {
             title: "404 - PROMPT NOT FOUND",
             description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
             highlights: ["💻 Debug to Discover", "🎨  Creative Storytelling", "🔧 AI Prompt Engineering"],
-            image: "./assets/404/404.jpg",
-            reverse: true
+            image: "./assets/404/404.jpg",            reverse: true
           },
           {
             title: "THE CIPHER TEXT",
@@ -177,15 +176,13 @@ const Home = () => {
             title: "JADE JOURNEY",
             description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
             highlights: ["📸SNAP", "🔎HUNT", "📱 ACT"],
-            image: "./assets/jade/jade.jpg",
-            reverse: true
+            image: "./assets/jade/jade.jpg",            reverse: true
           },
           {
             title: "INTELLICA",
             description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice",
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
-            image: "/assets/intellica/logo.jpg"
-          }
+            image: "/assets/intellica/logo.jpg"          }
         ].map((event, index) => (
           <motion.div
             key={index}
@@ -203,8 +200,7 @@ const Home = () => {
                 style={{ 
                   textDecoration: 'none', 
                   color: 'inherit',
-                  display: 'block'
-                }}
+                  display: 'block'                }}
               >
                 <motion.div
                   style={{
@@ -663,8 +659,7 @@ const Home = () => {
                   fontStyle: 'italic', 
                   color: '#ff00ff'
                 }}>
-                  JOINTTRESURER
-                </div>
+                  JOINTTRESURER                </div>
               </motion.div>
             </motion.div>
           </motion.div>
