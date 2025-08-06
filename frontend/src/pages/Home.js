@@ -164,7 +164,7 @@ const Home = () => {
             title: "404 - PROMPT NOT FOUND",
             description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
             highlights: ["💻 Debug to Discover", "🎨  Creative Storytelling", "🔧 AI Prompt Engineering"],
-            image: "./assets/404/404.jpg",
+            image: "/assets/404/404.jpg",
             reverse: true
           },
           {
@@ -177,7 +177,7 @@ const Home = () => {
             title: "JADE JOURNEY",
             description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
             highlights: ["📸SNAP", "🔎HUNT", "📱 ACT"],
-            image: "./assets/jade/jade.jpg",
+            image: "/assets/jade/jade.jpg",
 
           },
           {
