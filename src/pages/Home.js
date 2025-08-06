@@ -130,6 +130,7 @@ const Home = () => {
 
         {/* Countdown replaces description */}
         <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
+        {/* Remove the <motion.p> description */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -140,6 +141,7 @@ const Home = () => {
           </Link>
         </motion.div>
       </motion.section>
+
 
       {/* Team Profiles Section */}
       <motion.section 
