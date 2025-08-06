@@ -127,21 +127,23 @@ const Home = () => {
             transition={{ duration: 0.3 }}
           />
         </motion.div>
+          <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+          >
+            <button
+              className="cta-button"
+              onClick={() => window.open("https://forms.gle/3EY9HxsFXicxWfQE9", "_blank")}
+              style={{ cursor: "pointer" }}
+            >
+              Register Now
+            </button>
+          </motion.div>
+              </motion.section>
 
-        {/* Countdown replaces description */}
-        <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-        >
-          <Link to="/events" className="cta-button">
-            Explore Events
-          </Link>
-        </motion.div>
-      </motion.section>
-
-      {/* Team Profiles Section */}
+              {/* Team Profiles Section */}
       <motion.section
         className="team-profiles-section"
         variants={containerVariants}
