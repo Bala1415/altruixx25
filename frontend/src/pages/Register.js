@@ -4,7 +4,7 @@ import "./Register.css";
 
 const Register = () => {
   // Google Form URL - Replace this with your actual Google Form URL
-  const GOOGLE_FORM_URL = "https://forms.gle/your-google-form-id";
+  const GOOGLE_FORM_URL = "https://forms.gle/ZSYfxzCncgfkDP1VA";
 
   const handleRegisterClick = () => {
     // Open Google Form in a new tab
