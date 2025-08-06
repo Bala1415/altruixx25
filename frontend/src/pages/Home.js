@@ -180,7 +180,7 @@ const Home = () => {
         {[
           {
             title: "TECHNOVERSE",
-            description: "Our flagship competition that challenges participants with algorithmic problems, data analysis, and machine learning techniques using modern tools and technologies.",
+            description: "TechnoVerse is a multi-stage technical showdown where teams decode real-world problems, uncover hidden clues from messy data, and build ML models to battle for leaderboard glory.",
             highlights: ["🎯 Multi-stage Competition", "📊 Data Analysis Challenges", "🤖 ML Implementation"],
             image: "/assets/poster.jpg"
           },
