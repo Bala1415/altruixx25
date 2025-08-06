@@ -142,7 +142,6 @@ const Home = () => {
       </motion.section>
 
       {/* Team Profiles Section */} 
-      <motion.section
         className="team-profiles-section"
         variants={containerVariants}
         initial="visible"
@@ -162,9 +161,16 @@ const Home = () => {
           },
           {
             title: "404 - PROMPT NOT FOUND",
+<<<<<<< HEAD
             description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
             highlights: ["💻 Debug to Discover", "🎨  Creative Storytelling", "🔧 AI Prompt Engineering"],
-            image: "./assets/404/404.jpg",            reverse: true
+            image: "./assets/404/404.jpg",
+=======
+            description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling",
+            highlights: ["💻 Debug to discover", "🎨 Creative storytelling", "🤖AI prompt Engineering"],
+            image: "/assets/404.jpg",
+>>>>>>> parent of cd37c9f (pre final)
+            reverse: true
           },
           {
             title: "THE CIPHER TEXT",
@@ -174,15 +180,27 @@ const Home = () => {
           },
           {
             title: "JADE JOURNEY",
+<<<<<<< HEAD
             description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
             highlights: ["📸SNAP", "🔎HUNT", "📱 ACT"],
-            image: "./assets/jade/jade.jpg",            reverse: true
+            image: "./assets/jade/jade.jpg",
+=======
+            description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
+            highlights: ["🌐 Full-Stack Development", "☁️ Cloud Deployment", "📱 Modern Frameworks"],
+            image: "/assets/srm.png",
+>>>>>>> parent of cd37c9f (pre final)
+            reverse: true
           },
           {
             title: "INTELLICA",
             description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice",
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
-            image: "/assets/intellica/logo.jpg"          }
+<<<<<<< HEAD
+            image: "/assets/intellica/logo.jpg"
+=======
+            image: "/assets/srm.png"
+>>>>>>> parent of cd37c9f (pre final)
+          }
         ].map((event, index) => (
           <motion.div
             key={index}
@@ -195,12 +213,27 @@ const Home = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
+<<<<<<< HEAD
               <Link 
                 to={`/event/${index}`}
                 style={{ 
                   textDecoration: 'none', 
                   color: 'inherit',
-                  display: 'block'                }}
+                  display: 'block'
+=======
+              <ProfileCard
+                name={event.title}
+                title="Technical Event"
+                handle={event.title.toLowerCase().replace(/\s+/g, '')}
+                contactText="Learn More"
+                avatarUrl={event.image}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => {
+                  const eventsSection = document.querySelector('.events-section');
+                  eventsSection?.scrollIntoView({ behavior: 'smooth' });
+>>>>>>> parent of cd37c9f (pre final)
+                }}
               >
                 <motion.div
                   style={{
@@ -659,7 +692,12 @@ const Home = () => {
                   fontStyle: 'italic', 
                   color: '#ff00ff'
                 }}>
-                  JOINTTRESURER                </div>
+<<<<<<< HEAD
+                  JOINTTRESURER
+=======
+                  JOINT TRESURER
+>>>>>>> parent of cd37c9f (pre final)
+                </div>
               </motion.div>
             </motion.div>
           </motion.div>
