@@ -127,21 +127,27 @@ const Home = () => {
             transition={{ duration: 0.3 }}
           />
         </motion.div>
+          <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+          >
+            <Link to="/events" className="cta-button">
+              Explore Events
+            </Link>
+            <a
+              href="https://forms.gle/3EY9HxsFXicxWfQE9"
+              className="cta-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register Now
+            </a>
+          </motion.div>
+              </motion.section>
 
-        {/* Countdown replaces description */}
-        <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-        >
-          <Link to="/events" className="cta-button">
-            Explore Events
-          </Link>
-        </motion.div>
-      </motion.section>
-
-      {/* Team Profiles Section */}
+              {/* Team Profiles Section */}
       <motion.section
         className="team-profiles-section"
         variants={containerVariants}
@@ -163,20 +169,20 @@ const Home = () => {
             title: "404 - PROMPT NOT FOUND",
             description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
             highlights: ["💻 Debug to Discover", "🎨  Creative Storytelling", "🔧 AI Prompt Engineering"],
-            image: "./assets/404/404.jpg",
+            image: "/assets/404/404.jpg",
             reverse: true
           },
           {
             title: "THE CIPHER TEXT",
             description: "Not your usual movie night – it's decoding, designing, and outsmarting your way through iconic film lines and poster clues.",
             highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
-            image: "./assets/ciper/cpier.jpg"
+            image: "/assets/ciper/1.jpg"
           },
           {
             title: "JADE JOURNEY",
             description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
             highlights: ["📸SNAP", "🔎HUNT", "📱 ACT"],
-            image: "./assets/jade/jade.jpg",
+            image: "/assets/jade/jade.jpg",
 
           },
           {
