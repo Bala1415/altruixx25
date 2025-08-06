@@ -22,7 +22,7 @@ techniques using modern tools and technologies.`,
       requirements: "Bring a prototype or demo to present.",
       icon: "🚀",
       color: "from-blue-500 to-cyan-500",
-      registrationUrl: "https://forms.google.com/technoverse"
+      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ techniques using modern tools and technologies.`,
       requirements: "Laptop with Python installed.",
       icon: "🤖",
       color: "from-purple-500 to-pink-500",
-      registrationUrl: "https://forms.google.com/promptnotfound"
+      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 3,
@@ -50,7 +50,7 @@ techniques using modern tools and technologies.`,
       requirements: "Basic networking knowledge recommended.",
       icon: "🔐",
       color: "from-red-500 to-orange-500",
-      registrationUrl: "https://forms.google.com/ciphertext"
+      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 4,
@@ -64,7 +64,7 @@ techniques using modern tools and technologies.`,
       requirements: "Laptop with a code editor installed.",
       icon: "🌐",
       color: "from-green-500 to-teal-500",
-      registrationUrl: "https://forms.google.com/jadejourney"
+      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 5,
@@ -79,7 +79,7 @@ techniques using modern tools and technologies.`,
       requirements: "Prepare a business plan and pitch deck for your presentation.",
       icon: "📊",
       color: "from-indigo-500 to-purple-500",
-      registrationUrl: "https://forms.google.com/paperpresentation"
+      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     }
   ];
 
@@ -428,7 +428,7 @@ techniques using modern tools and technologies.`,
             Contact Us
           </Link>
           <motion.a
-            href="https://forms.gle/3EY9HxsFXicxWfQE9"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdNZoaoSEkNWg45ZY6obMOttfUkYc7X5jpUtoIkCH31hghlVw/viewform"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
