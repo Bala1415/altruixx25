@@ -186,9 +186,9 @@ const Home = () => {
           },
           {
             title: "404 - PROMPT NOT FOUND",
-            description: "An innovative workshop combining technical skills with creativity, featuring debugging challenges and AI-powered content generation.",
-            highlights: ["💻 Technical Skills Assessment", "🎨 Creative Challenges", "🔧 Debugging Expertise"],
-            image: "/assets/404/1.jpg",
+            description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
+            highlights: ["💻 Debug to Discover", "🎨  Creative Storytelling", "🔧 AI Prompt Engineering"],
+            image: "./assets/404/404.jpg",
             reverse: true
           },
           {
@@ -201,7 +201,7 @@ const Home = () => {
             title: "JADE JOURNEY",
             description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
             highlights: ["🌐 Full-Stack Development", "☁️ Cloud Deployment", "📱 Modern Frameworks"],
-            image: "/assets/srm.png",
+            image: "./assets/jade/jade.jpg",
             reverse: true
           },
           {
@@ -260,28 +260,6 @@ const Home = () => {
                       objectFit: 'cover'
                     }}
                   />
-                  <motion.div
-                    style={{
-                      position: 'absolute',
-                      bottom: '0',
-                      left: '0',
-                      right: '0',
-                      background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
-                      padding: '2rem 1rem 1rem',
-                      color: 'white',
-                      textAlign: 'center'
-                    }}
-                  >
-                    <h4 style={{
-                      fontSize: '1.2rem',
-                      fontWeight: '700',
-                      margin: '0',
-                      textTransform: 'uppercase',
-                      letterSpacing: '1px'
-                    }}>
-                      {event.title}
-                    </h4>
-                  </motion.div>
                 </motion.div>
               </Link>
             </motion.div>
@@ -311,76 +289,6 @@ const Home = () => {
             </motion.div>
           </motion.div>
         ))}
-      </motion.section>
-
-      {/* Stats Section */}
-      <motion.section 
-        style={{
-          padding: '6rem 2rem',
-          background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1))',
-          textAlign: 'center'
-        }}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.h2 className="section-title" variants={itemVariants}>
-          Event Statistics
-        </motion.h2>
-        
-        <motion.div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '3rem',
-            maxWidth: '1000px',
-            margin: '4rem auto 0'
-          }}
-          variants={containerVariants}
-        >
-          {[
-            { number: '5+', label: 'Technical Events', icon: '🚀' },
-            { number: '500+', label: 'Expected Participants', icon: '👥' },
-            { number: '3', label: 'Days of Innovation', icon: '📅' },
-            { number: '₹50K+', label: 'Prize Pool', icon: '🏆' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.1, y: -10 }}
-              style={{
-                background: 'rgba(10, 20, 40, 0.8)',
-                padding: '2rem',
-                borderRadius: '20px',
-                border: '1px solid rgba(0, 255, 255, 0.3)',
-                backdropFilter: 'blur(20px)'
-              }}
-            >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{stat.icon}</div>
-              <motion.div
-                style={{
-                  fontSize: '3rem',
-                  fontWeight: 'bold',
-                  background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  marginBottom: '0.5rem'
-                }}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.1 * index }}
-                viewport={{ once: true }}
-              >
-                {stat.number}
-              </motion.div>
-              <div style={{ color: '#b0c4de', fontSize: '1.1rem', fontWeight: '600' }}>
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.section>
 
       {/* Contact Section */}
