@@ -698,14 +698,13 @@ const Home = () => {
             className="contact-grid" 
             variants={containerVariants}
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-              gap: '4rem',
-              alignItems: 'start'
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
-            {/* General Contact Information */}
-            <motion.div variants={itemVariants}>
+            {/* General Contact Information - Centered */}
+            <motion.div variants={itemVariants} style={{ maxWidth: '800px' }}>
               <h3 style={{ 
                 color: '#00ffff', 
                 marginBottom: '2.5rem', 
@@ -823,167 +822,6 @@ const Home = () => {
                   </div>
                 </motion.div>
               </div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div variants={itemVariants}>
-              <h3 style={{ 
-                color: '#00ffff', 
-                marginBottom: '2.5rem',
-                fontSize: '2rem',
-                fontWeight: '700',
-                textAlign: 'center'
-              }}>
-                Send us a Message
-              </h3>
-              
-              <motion.form 
-                onSubmit={handleSubmit}
-                style={{
-                  background: 'rgba(10, 20, 40, 0.8)',
-                  padding: '2.5rem',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(0, 255, 255, 0.3)',
-                  backdropFilter: 'blur(20px)'
-                }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block',
-                    color: '#00ffff',
-                    marginBottom: '0.8rem',
-                    fontWeight: '600',
-                    fontSize: '1.1rem'
-                  }}>
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your Name"
-                    style={{
-                      width: '100%',
-                      padding: '1.2rem',
-                      border: '2px solid rgba(0, 255, 255, 0.3)',
-                      borderRadius: '12px',
-                      background: 'rgba(0, 255, 255, 0.1)',
-                      color: 'white',
-                      fontSize: '1rem',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  />
-                </div>
-
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block',
-                    color: '#00ffff',
-                    marginBottom: '0.8rem',
-                    fontWeight: '600',
-                    fontSize: '1.1rem'
-                  }}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your@email.com"
-                    style={{
-                      width: '100%',
-                      padding: '1.2rem',
-                      border: '2px solid rgba(0, 255, 255, 0.3)',
-                      borderRadius: '12px',
-                      background: 'rgba(0, 255, 255, 0.1)',
-                      color: 'white',
-                      fontSize: '1rem',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  />
-                </div>
-
-                <div style={{ marginBottom: '2rem' }}>
-                  <label style={{ 
-                    display: 'block',
-                    color: '#00ffff',
-                    marginBottom: '0.8rem',
-                    fontWeight: '600',
-                    fontSize: '1.1rem'
-                  }}>
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows="5"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your message here..."
-                    style={{
-                      width: '100%',
-                      padding: '1.2rem',
-                      border: '2px solid rgba(0, 255, 255, 0.3)',
-                      borderRadius: '12px',
-                      background: 'rgba(0, 255, 255, 0.1)',
-                      color: 'white',
-                      fontSize: '1rem',
-                      resize: 'vertical',
-                      outline: 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  />
-                </div>
-
-                <motion.button 
-                  type="submit" 
-                  className="btn-primary"
-                  style={{ 
-                    width: '100%',
-                    padding: '1.2rem',
-                    fontSize: '1.1rem',
-                    fontWeight: '700',
-                    background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                    border: 'none',
-                    borderRadius: '12px',
-                    color: '#0a0a0f',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Send Message
-                </motion.button>
-                
-                {sent && (
-                  <motion.div 
-                    className="success-message"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    style={{ 
-                      marginTop: '1.5rem',
-                      padding: '1rem',
-                      background: 'rgba(0, 255, 0, 0.1)',
-                      border: '1px solid rgba(0, 255, 0, 0.3)',
-                      borderRadius: '10px',
-                      color: '#00ff00',
-                      textAlign: 'center',
-                      fontWeight: '600'
-                    }}
-                  >
-                    ✅ Thank you! Message sent successfully.
-                  </motion.div>
-                )}
-              </motion.form>
             </motion.div>
           </motion.div>
         </div>
