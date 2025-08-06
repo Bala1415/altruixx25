@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import CountdownTimer from '../components/countdown';
 
 const Home = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
   const [particles, setParticles] = useState([]);
 
   // Create floating particles effect
@@ -27,26 +25,6 @@ const Home = () => {
     const interval = setInterval(createParticles, 10000);
     return () => clearInterval(interval);
   }, []);
-
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    // Create mailto link with form data
-    const subject = `Contact from ${form.name}`;
-    const body = `Name: ${form.name}%0D%0AEmail: ${form.email}%0D%0A%0D%0AMessage:%0D%0A${form.message}`;
-    const mailtoLink = `mailto:altruixx@srmvec.edu?subject=${encodeURIComponent(subject)}&body=${body}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    // Show success message and reset form
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 5000);
-  }
 
   // Animation variants
   const containerVariants = {
