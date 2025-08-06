@@ -165,104 +165,90 @@ const Home = () => {
       </motion.section>
 
 
-      {/* Events Section */}
+      {/* Team Profiles Section */}
       <motion.section 
-        className="events-section"
+        className="team-profiles-section"
         variants={containerVariants}
         initial="visible"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        style={{
-          padding: '6rem 2rem',
-          background: 'linear-gradient(135deg, rgba(10, 20, 40, 0.95), rgba(0, 30, 60, 0.95))'
-        }}
       >
         <motion.h2 className="section-title" variants={itemVariants}>
           Our Events
         </motion.h2>
         
-        <motion.div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '3rem',
-            maxWidth: '1400px',
-            margin: '4rem auto 0',
-            padding: '0 2rem'
-          }}
-          variants={containerVariants}
-        >
-          {[
-            {
-              id: 0,
-              title: "TECHNOVERSE",
-              description: "Our flagship competition that challenges participants with algorithmic problems, data analysis, and machine learning techniques using modern tools and technologies.",
-              image: "/assets/poster.jpg"
-            },
-            {
-              id: 1,
-              title: "404 - PROMPT NOT FOUND",
-              description: "An innovative workshop combining technical skills with creativity, featuring debugging challenges and AI-powered content generation.",
-              image: "/assets/404/1.jpg"
-            },
-            {
-              id: 2,
-              title: "THE CIPHER TEXT",
-              description: "Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations.",
-              image: "/assets/srm.png"
-            },
-            {
-              id: 3,
-              title: "JADE JOURNEY",
-              description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
-              image: "/assets/srm.png"
-            },
-            {
-              id: 4,
-              title: "INTELLICA",
-              description: "Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
-              image: "/assets/poster.jpg"
-            }
-          ].map((event, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -10 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '20px',
-                padding: '2rem',
-                border: '2px solid rgba(0, 255, 255, 0.3)',
-                backdropFilter: 'blur(20px)',
-                textAlign: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
+        {[
+          {
+            title: "TECHNOVERSE",
+            description: "Our flagship competition that challenges participants with algorithmic problems, data analysis, and machine learning techniques using modern tools and technologies.",
+            highlights: ["🎯 Multi-stage Competition", "📊 Data Analysis Challenges", "🤖 ML Implementation"],
+            image: "/assets/poster.jpg"
+          },
+          {
+            title: "404 - PROMPT NOT FOUND",
+            description: "An innovative workshop combining technical skills with creativity, featuring debugging challenges and AI-powered content generation.",
+            highlights: ["💻 Technical Skills Assessment", "🎨 Creative Challenges", "🔧 Debugging Expertise"],
+            image: "/assets/404/1.jpg",
+            reverse: true
+          },
+          {
+            title: "THE CIPHER TEXT",
+            description: "Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations.",
+            highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
+            image: "/assets/srm.png"
+          },
+          {
+            title: "JADE JOURNEY",
+            description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
+            highlights: ["🌐 Full-Stack Development", "☁️ Cloud Deployment", "📱 Modern Frameworks"],
+            image: "/assets/srm.png",
+            reverse: true
+          },
+          {
+            title: "INTELLICA",
+            description: "Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
+            highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
+            image: "/assets/poster.jpg"
+          }
+        ].map((event, index) => (
+          <motion.div
+            key={index}
+            className={`profile-row ${event.reverse ? 'reverse' : ''}`}
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+          >
+            <motion.div 
+              className="profile-container"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
               <Link 
-                to={`/event/${event.id}`}
+                to={`/event/${index}`}
                 style={{ 
                   textDecoration: 'none', 
                   color: 'inherit',
-                  display: 'block',
-                  height: '100%'
+                  display: 'block'
                 }}
               >
-                {/* Event Logo/Image */}
                 <motion.div
                   style={{
-                    width: '150px',
-                    height: '150px',
-                    margin: '0 auto 1.5rem',
-                    borderRadius: '15px',
+                    width: '300px',
+                    height: '400px',
+                    margin: '0 auto',
+                    borderRadius: '20px',
                     overflow: 'hidden',
                     border: '3px solid rgba(0, 255, 255, 0.5)',
-                    background: 'rgba(0, 255, 255, 0.1)'
+                    background: 'rgba(0, 255, 255, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backdropFilter: 'blur(20px)',
+                    position: 'relative'
                   }}
                   whileHover={{ 
                     border: '3px solid rgba(0, 255, 255, 0.8)',
-                    boxShadow: '0 10px 30px rgba(0, 255, 255, 0.3)'
+                    boxShadow: '0 20px 40px rgba(0, 255, 255, 0.3)',
+                    scale: 1.05
                   }}
                 >
                   <img
@@ -274,58 +260,57 @@ const Home = () => {
                       objectFit: 'cover'
                     }}
                   />
-                </motion.div>
-
-                {/* Event Title */}
-                <h3 style={{
-                  color: 'white',
-                  fontSize: '1.4rem',
-                  fontWeight: '700',
-                  marginBottom: '1rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
-                }}>
-                  {event.title}
-                </h3>
-
-                {/* Event Description */}
-                <p style={{
-                  color: '#b0c4de',
-                  fontSize: '0.95rem',
-                  lineHeight: '1.6',
-                  marginBottom: '1.5rem',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden'
-                }}>
-                  {event.description}
-                </p>
-
-                {/* Learn More Button */}
-                <motion.div
-                  style={{
-                    background: 'linear-gradient(135deg, #00ffff, #0080ff)',
-                    color: '#0a0a0f',
-                    padding: '0.8rem 1.5rem',
-                    borderRadius: '25px',
-                    fontWeight: '600',
-                    fontSize: '0.9rem',
-                    display: 'inline-block',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px'
-                  }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: '0 5px 15px rgba(0, 255, 255, 0.4)'
-                  }}
-                >
-                  Learn More
+                  <motion.div
+                    style={{
+                      position: 'absolute',
+                      bottom: '0',
+                      left: '0',
+                      right: '0',
+                      background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
+                      padding: '2rem 1rem 1rem',
+                      color: 'white',
+                      textAlign: 'center'
+                    }}
+                  >
+                    <h4 style={{
+                      fontSize: '1.2rem',
+                      fontWeight: '700',
+                      margin: '0',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px'
+                    }}>
+                      {event.title}
+                    </h4>
+                  </motion.div>
                 </motion.div>
               </Link>
             </motion.div>
-          ))}
-        </motion.div>
+            <motion.div 
+              className="profile-content"
+              initial={{ opacity: 0, x: event.reverse ? 50 : -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+              <ul className="profile-highlights">
+                {event.highlights.map((highlight, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * idx }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 10 }}
+                  >
+                    {highlight}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        ))}
       </motion.section>
 
       {/* Stats Section */}
