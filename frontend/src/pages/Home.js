@@ -127,29 +127,26 @@ const Home = () => {
             transition={{ duration: 0.3 }}
           />
         </motion.div>
-          <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-          >
-            <button
-              className="cta-button"
-              onClick={() => window.open("https://forms.gle/3EY9HxsFXicxWfQE9", "_blank")}
-              style={{ cursor: "pointer" }}
-            >
-              Register Now
-            </button>
-          </motion.div>
-              </motion.section>
 
-              {/* Team Profiles Section */}
+        {/* Countdown replaces description */}
+        <CountdownTimer eventName="ALTRUIXX 2K25" eventDate={new Date(new Date().getFullYear(), 7, 23, 0, 0, 0)} autoStart />
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+        >
+          <Link to="/events" className="cta-button">
+            Explore Events
+          </Link>
+        </motion.div>
+      </motion.section>
+
+      {/* Team Profiles Section */}
       <motion.section
         className="team-profiles-section"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        animate="visible"
       >
         <motion.h2 className="section-title" variants={itemVariants}>
           Our Events
@@ -166,20 +163,20 @@ const Home = () => {
             title: "404 - PROMPT NOT FOUND",
             description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
             highlights: ["💻 Debug to Discover", "🎨  Creative Storytelling", "🔧 AI Prompt Engineering"],
-            image: "/assets/404/404.jpg",
+            image: "./assets/404/404.jpg",
             reverse: true
           },
           {
-            title: "THE CIPHER CUT",
-            description: "Not your usual movie night – it's decoding, designing, and outsmarting your way through iconic film lines and poster clues",
+            title: "THE CIPHER TEXT",
+            description: "Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations.",
             highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
-            image: "/assets/ciper/cpier.jpg"
+            image: "/assets/srm.png"
           },
           {
             title: "JADE JOURNEY",
             description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
             highlights: ["📸SNAP", "🔎HUNT", "📱 ACT"],
-            image: "/assets/jade/jade.jpg",
+            image: "./assets/jade/jade.jpg",
 
           },
           {
@@ -245,10 +242,8 @@ const Home = () => {
             </motion.div>
             <motion.div 
               className="profile-content"
-              initial={{ opacity: 0, x: event.reverse ? 50 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 0 }}
             >
               <h3>{event.title}</h3>
               <p>{event.description}</p>
@@ -256,10 +251,8 @@ const Home = () => {
                 {event.highlights.map((highlight, idx) => (
                   <motion.li
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 * idx }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 1, x: 0 }}
+                    animate={{ opacity: 1, x: 0 }}
                     whileHover={{ x: 10 }}
                   >
                     {highlight}
