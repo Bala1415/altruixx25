@@ -171,7 +171,7 @@ const Home = () => {
             title: "THE CIPHER TEXT",
             description: "Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations.",
             highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
-            image: "/assets/srm.png"
+            image: "/assets/ciper/cpier.jpg"
           },
           {
             title: "JADE JOURNEY",
