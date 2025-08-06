@@ -168,8 +168,8 @@ const Home = () => {
             reverse: true
           },
           {
-            title: "THE CIPHER TEXT",
-            description: "Cybersecurity summit exploring the latest in ethical hacking, penetration testing, and digital forensics with hands-on demonstrations.",
+            title: "THE CIPHER CUT",
+            description: "Not your usual movie night – it's decoding, designing, and outsmarting your way through iconic film lines and poster clues",
             highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
             image: "/assets/ciper/cpier.jpg"
           },
