@@ -199,8 +199,8 @@ const Home = () => {
           },
           {
             title: "JADE JOURNEY",
-            description: "Intensive web development bootcamp covering modern technologies including React, Node.js, MongoDB, and cloud deployment strategies.",
-            highlights: ["🌐 Full-Stack Development", "☁️ Cloud Deployment", "📱 Modern Frameworks"],
+            description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
+            highlights: ["📸SNAP", "🔎HUNT", "📱 ACT"],
             image: "./assets/jade/jade.jpg",
             reverse: true
           },
@@ -208,7 +208,7 @@ const Home = () => {
             title: "INTELLICA",
             description: "Academic presentation platform where participants showcase their research, innovations, and technical findings to expert panels.",
             highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
-            image: "/assets/poster.jpg"
+            image: "/assets/intellica/logo.jpg"
           }
         ].map((event, index) => (
           <motion.div
