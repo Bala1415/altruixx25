@@ -392,7 +392,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Dr. ABINAYA
+                  Dr.SRINIVASAN
                 </h4>
                 
                 <h5 style={{
@@ -403,7 +403,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Professor
+                  Professor of Practice
                 </h5>
                 
                 <p style={{
@@ -472,7 +472,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Dr. SRINIVASAN
+                  Ms.Abinaya
                 </h4>
                 
                 <h5 style={{
@@ -483,7 +483,7 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Associate Professor
+                  Assistant Professor
                 </h5>
                 
                 <p style={{
@@ -613,7 +613,7 @@ const Home = () => {
                 }}
               >
                 <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
-                  SHALINI (7010040489)
+                  SHALINI (+91 91502 74864)
                 </div>
                 <div style={{ 
                   fontSize: '1.3rem', 
@@ -704,8 +704,8 @@ const Home = () => {
                 {[
                   { icon: '📧', title: 'Official Email', info: 'altruixx@srmvec.edu' },
                   { icon: '📍', title: 'Venue', info: 'SRM Valliammai Engineering College\nKattankulathur, Chennai - 603203' },
-                  { icon: '🕐', title: 'Event Dates', info: 'March 15-19, 2025\nRegistration Deadline: March 10, 2025' },
-                  { icon: '🎯', title: 'Event Type', info: 'Technical Symposium\nWorkshops & Competitions' }
+                  { icon: '🕐', title: 'Event Dates', info: 'August 23 2025' },
+                  { icon: '🎯', title: 'Event Type', info: 'Technical Symposium' }
                 ].map((contact, index) => (
                   <motion.div
                     key={index}
@@ -766,10 +766,7 @@ const Home = () => {
                     gap: '1rem'
                   }}>
                     {[
-                      { name: '💼 LinkedIn', url: 'https://linkedin.com' },
                       { name: '📷 Instagram', url: 'https://www.instagram.com/altruixx_2k25?igsh=MXdicnUyanQxb2c0eA==' },
-                      { name: '📘 Facebook', url: 'https://facebook.com' },
-                      { name: '🐦 Twitter', url: 'https://twitter.com' }
                     ].map((social, index) => (
                       <motion.a
                         key={index}
