@@ -173,9 +173,9 @@ const Home = () => {
             reverse: true
           },
           {
-            title: "THE CIPHER TEXT",
+            title: "THE CIPHER CUT",
             description: "Not your usual movie night – it's decoding, designing, and outsmarting your way through iconic film lines and poster clues.",
-            highlights: ["🔐 Cybersecurity Focus", "🛡️ Ethical Hacking", "🔍 Digital Forensics"],
+            highlights: [],
             image: "/assets/ciper/cipher.jpg"
           },
           {
