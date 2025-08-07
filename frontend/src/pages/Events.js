@@ -1,82 +1,96 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Events = () => {
-  const [filter, setFilter] = useState('all');
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [particles, setParticles] = useState([]);
+
+  // Create floating particles effect
+  useEffect(() => {
+    const createParticles = () => {
+      const newParticles = [];
+      for (let i = 0; i < 30; i++) {
+        newParticles.push({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 6,
+          duration: 3 + Math.random() * 3,
+        });
+      }
+      setParticles(newParticles);
+    };
+
+    createParticles();
+    const interval = setInterval(createParticles, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   const events = [
     {
-      id: 1,
+      id: 0,
       title: "TECHNOVERSE",
-      description: `TechnoVerse is a multi-stage team-based technical event combining logical thinking, 
-problem-solving, and real-world technical reasoning. Across three escalating rounds, 
-participants will tackle algorithmic challenges, analyze datasets, and apply machine learning 
-techniques using modern tools and technologies.`,
+      description: "TechnoVerse is a multi-stage technical showdown where teams decode real-world problems, uncover hidden clues from messy data, and build ML models to battle for leaderboard glory.",
       date: "August 23, 2025",
       time: "10:00 AM - 4:00 PM",
       venue: "AIDS lab 3rd floor",
-      eligibility: "Open to all students. Teams of 2-4 members are required.",
-      color: "from-blue-500 to-cyan-500",
+      highlights: ["🎯 Multi-stage Competition", "📊 Data Analysis Challenges", "🤖 ML Implementation"],
+      image: "/assets/technoverse/techno.jpg",
+      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
+    },
+    {
+      id: 1,
+      title: "404 - PROMPT NOT FOUND",
+      description: "404 PROMPT NOT FOUND is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling.",
+      date: "August 23, 2025",
+      time: "11:00 AM - 3:00 PM",
+      venue: "AI&DS Lab- 3rd Floor",
+      highlights: ["💻 Debug to Discover", "🎨 Creative Storytelling", "🔧 AI Prompt Engineering"],
+      image: "/assets/404/404.jpg",
       registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 2,
-      title: "404 - PROMPT NOT FOUND",
-      description: "404 prompt not found is a tech event where teams face a fast-paced quiz followed by a creative round that turns debugged code into AI-generated visuals through storytelling",
+      title: "THE CIPHER CUT",
+      description: "Not your usual movie night – it's decoding, designing, and outsmarting your way through iconic film lines and poster clues.",
       date: "August 23, 2025",
       time: "11:00 AM - 3:00 PM",
-      venue: "AI&DS Lab- 3rd Floor",
-      eligibility: "Participants should have basic programming knowledge.",
-      prizes: "Certificates and Cash prizes for top 3 teams.",
-      requirements: "Laptop with Python installed.",
-      icon: "🤖",
-      color: "from-purple-500 to-pink-500",
+      venue: "Room no-203",
+      highlights: ["🎬 Movie Decoding", "🎨 Design Challenges", "🧩 Poster Clues"],
+      image: "/assets/ciper/cipher.jpg",
       registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 3,
-      title: "THE CIPHER CUT",
-      description: " Not your usual movie night – it's decoding, designing, and outsmarting your way through iconic film lines and poster clues",
+      title: "JADE JOURNEY",
+      description: "Test your memory, speed, and teamwork in this thrilling 2-round game! Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions. From brainy speed to silent drama — only the sharpest teams survive!",
       date: "August 23, 2025",
-      time: "11:00 AM - 3:00 PM",
-      venue: "Room no-203",
-      color: "from-red-500 to-orange-500",
+      time: "10:00 AM - 6:00 PM",
+      venue: "Multiple Venues",
+      highlights: ["📸 SNAP", "🔎 HUNT", "📱 ACT"],
+      image: "/assets/jade/jade.jpg",
       registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     },
     {
       id: 4,
-      title: "JADE JOURNEY",
-      description: "Test your memory, speed, and teamwork in this thrilling 2-round game!Recreate cup patterns, hunt treasures linked to your department, and decode tech words through actions.From brainy speed to silent drama — only the sharpest teams survive",
+      title: "INTELLICA",
+      description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It's a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it's AI, green tech, or futuristic systems — if you've got the vision, Intellica is your voice.",
       date: "August 23, 2025",
-      time: "10:00 AM - 6:00 PM",
-      color: "from-green-500 to-teal-500",
-      registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
-    },
-    {
-      id: 5,
-      title: "Intellica",
-      description: "Intellica – Ignite Ideas. Inspire Innovation. Step into the spotlight with Intellica, a thrilling paper presentation event where innovation meets intellect. It’s a stage for tech enthusiasts and budding researchers to showcase groundbreaking ideas, challenge conventional thinking, and present solutions that shape tomorrow. Whether it’s AI, green tech, or futuristic systems — if you’ve got the vision, Intellica is your voice.",
-      date: "August 23, 2025",
-      color: "from-indigo-500 to-purple-500",
+      time: "10:00 AM - 5:00 PM",
+      venue: "Auditorium",
+      highlights: ["📚 Research Presentation", "🎓 Academic Excellence", "🏆 Expert Evaluation"],
+      image: "/assets/intellica/logo.jpg",
       registrationUrl: "https://forms.gle/3EY9HxsFXicxWfQE9"
     }
   ];
 
-  const categories = ['all', 'Competition', 'Workshop', 'Summit', 'Bootcamp'];
-  
-  const filteredEvents = filter === 'all' 
-    ? events 
-    : events.filter(event => event.category === filter);
-
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.1,
-        staggerChildren: 0.1
+        delayChildren: 0.3,
+        staggerChildren: 0.2
       }
     }
   };
@@ -87,7 +101,7 @@ techniques using modern tools and technologies.`,
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         ease: "easeOut"
       }
     }
@@ -102,269 +116,381 @@ techniques using modern tools and technologies.`,
         duration: 0.5,
         ease: "easeOut"
       }
-    },
-    hover: {
-      scale: 1.05,
-      y: -10,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
     }
   };
 
   return (
-    <motion.div 
-      className="events-section"
-      style={{ paddingTop: '6rem', minHeight: '100vh' }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Header */}
+    <div style={{ 
+      minHeight: '100vh', 
+      background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%)',
+      paddingTop: '6rem',
+      position: 'relative'
+    }}>
+      {/* Floating Particles */}
+      <div className="particles">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="particle"
+            style={{
+              left: `${particle.left}%`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`,
+              backgroundColor: 'rgba(0, 255, 255, 0.5)'
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Hero Section */}
       <motion.div
+        style={{
+          textAlign: 'center',
+          marginBottom: '4rem',
+          padding: '0 2rem'
+        }}
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ textAlign: 'center', marginBottom: '4rem' }}
       >
-        <h1 className="section-title">
+        <motion.h1
+          style={{
+            fontSize: 'clamp(3rem, 8vw, 6rem)',
+            fontWeight: '900',
+            background: 'linear-gradient(135deg, #00ffff, #0080ff, #ff00ff)',
+            backgroundSize: '200% 200%',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            marginBottom: '1.5rem',
+            textShadow: '0 0 50px rgba(0, 255, 255, 0.3)',
+            lineHeight: '1.1'
+          }}
+          animate={{
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          ALTRUIXX 2K25
+        </motion.h1>
+        
+        <motion.h2
+          style={{
+            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+            fontWeight: '300',
+            color: 'white',
+            marginBottom: '1rem'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
           Discover Amazing Events
-        </h1>
-        <p style={{ 
-          fontSize: '1.3rem', 
-          color: '#b0c4de', 
-          maxWidth: '800px', 
-          margin: '0 auto',
-          lineHeight: '1.8'
-        }}>
-          Explore our diverse range of technical events, workshops, and competitions 
-          designed to challenge and inspire the next generation of innovators.
-        </p>
+        </motion.h2>
+        
+        <motion.p
+          style={{
+            fontSize: '1.3rem',
+            color: '#b0c4de',
+            maxWidth: '800px',
+            margin: '0 auto',
+            lineHeight: '1.8'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+        >
+          Explore our diverse range of technical events designed to challenge and inspire the next generation of innovators.
+        </motion.p>
       </motion.div>
 
-      {/* Filter Tabs */}
+      {/* Events Grid */}
       <motion.div
         style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '0 1rem',
           display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
+          flexDirection: 'column',
+          gap: '2rem',
           marginBottom: '4rem'
         }}
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {categories.map((category) => (
-          <motion.button
-            key={category}
-            onClick={() => setFilter(category)}
-            style={{
-              padding: '1rem 2rem',
-              borderRadius: '25px',
-              border: filter === category 
-                ? '2px solid #00ffff' 
-                : '2px solid rgba(0, 255, 255, 0.3)',
-              background: filter === category 
-                ? 'linear-gradient(135deg, #00ffff, #0080ff)'
-                : 'transparent',
-              color: filter === category ? '#0a0a0f' : '#00ffff',
-              fontWeight: '600',
-              fontSize: '1rem',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              textTransform: 'capitalize'
-            }}
-            variants={itemVariants}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: '0 0 20px rgba(0, 255, 255, 0.4)'
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {category}
-          </motion.button>
-        ))}
-      </motion.div>
-
-      {/* Events Grid */}
-      <motion.div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '3rem',
-          padding: '0 1rem',
-          maxWidth: '800px',
-          margin: '0 auto'
-        }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        layout
-      >
-        {filteredEvents.map((event, index) => (
+        {events.map((event, index) => (
           <motion.div
             key={event.id}
-            className="event-card"
             variants={cardVariants}
-            whileHover="hover"
-            onHoverStart={() => setHoveredCard(event.id)}
-            onHoverEnd={() => setHoveredCard(null)}
-            style={{
-              position: 'relative',
-              overflow: 'hidden'
+            whileHover={{ 
+              scale: 1.02,
+              y: -5,
+              transition: { duration: 0.3 }
             }}
-            layout
-            layoutId={`event-${event.id}`}
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.05))',
+              borderRadius: '25px',
+              border: '2px solid rgba(0, 255, 255, 0.3)',
+              backdropFilter: 'blur(20px)',
+              overflow: 'hidden',
+              position: 'relative',
+              cursor: 'pointer'
+            }}
           >
-            {/* Animated Background */}
+            {/* Shimmer Effect */}
+            <div style={{
+              position: 'absolute',
+              top: '-50%',
+              left: '-50%',
+              width: '200%',
+              height: '200%',
+              background: 'linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent)',
+              animation: 'shimmer 3s infinite',
+              transform: 'rotate(-45deg)',
+              zIndex: 1
+            }} />
+
+            {/* Event Image */}
             <motion.div
               style={{
+                height: '250px',
+                overflow: 'hidden',
+                position: 'relative'
+              }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={event.image}
+                alt={event.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'brightness(0.8)'
+                }}
+              />
+              
+              {/* Image Overlay */}
+              <div style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: `linear-gradient(135deg, ${event.color.split(' ').join(', ')})`,
-                opacity: hoveredCard === event.id ? 0.1 : 0.05,
-                transition: 'opacity 0.3s ease',
-                zIndex: -1
-              }}
-            />
+                background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%)'
+              }} />
 
-            {/* Category Badge */}
-            <motion.div
-              style={{
-                display: 'inline-block',
-                background: `linear-gradient(135deg, ${event.color.split(' ').join(', ')})`,
-                color: '#0a0a0f',
-                padding: '0.5rem 1.2rem',
-                borderRadius: '20px',
-                fontSize: '0.9rem',
-                fontWeight: 'bold',
-                marginBottom: '1.5rem',
-                boxShadow: '0 4px 15px rgba(0, 255, 255, 0.3)'
-              }}
-              whileHover={{ scale: 1.1 }}
-            >
-              {event.category}
+              {/* Event Title on Image */}
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  bottom: '1rem',
+                  left: '1.5rem',
+                  right: '1.5rem',
+                  zIndex: 2
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <h3 style={{
+                  color: 'white',
+                  fontSize: '1.5rem',
+                  fontWeight: '700',
+                  marginBottom: '0.5rem',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                }}>
+                  {event.title}
+                </h3>
+              </motion.div>
             </motion.div>
 
-            {/* Event Icon */}
-            <motion.div
-              style={{
-                fontSize: '4rem',
-                textAlign: 'center',
-                marginBottom: '1.5rem',
-                filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.5))'
-              }}
-              animate={{
-                rotateY: hoveredCard === event.id ? 360 : 0
-              }}
-              transition={{ duration: 0.6 }}
-            >
-              {event.icon}
-            </motion.div>
-
-            <h3 style={{ marginBottom: '1.5rem' }}>{event.title}</h3>
-            
-            <p style={{ 
-              marginBottom: '2rem',
-              display: '-webkit-box',
-              WebkitLineClamp: 4,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden'
+            {/* Event Content */}
+            <div style={{
+              padding: '1.5rem',
+              position: 'relative',
+              zIndex: 2
             }}>
-              {event.description}
-            </p>
-
-            {/* Event Details */}
-            <div style={{ marginBottom: '2rem' }}>
-              <div className="event-meta" style={{ 
-                flexDirection: 'column', 
-                alignItems: 'flex-start',
-                gap: '0.8rem'
+              {/* Event Details */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.8rem',
+                marginBottom: '1.5rem'
               }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  📅 <strong>{event.date}</strong>
-                </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  🕐 {event.time}
-                </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  📍 {event.venue}
-                </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  🏆 {event.prizes}
-                </span>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: '#00ffff',
+                  fontSize: '0.95rem',
+                  fontWeight: '500'
+                }}>
+                  <span>📅</span>
+                  <span>{event.date}</span>
+                </div>
+                
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: '#b0c4de',
+                  fontSize: '0.95rem'
+                }}>
+                  <span>🕒</span>
+                  <span>{event.time}</span>
+                </div>
+                
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: '#b0c4de',
+                  fontSize: '0.95rem'
+                }}>
+                  <span>📍</span>
+                  <span>{event.venue}</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p style={{
+                color: '#d0d0d0',
+                fontSize: '1rem',
+                lineHeight: '1.6',
+                marginBottom: '1.5rem',
+                display: '-webkit-box',
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden'
+              }}>
+                {event.description}
+              </p>
+
+              {/* Highlights */}
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '0.5rem',
+                marginBottom: '2rem'
+              }}>
+                {event.highlights.map((highlight, idx) => (
+                  <motion.span
+                    key={idx}
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2))',
+                      color: '#00ffff',
+                      padding: '0.4rem 0.8rem',
+                      borderRadius: '15px',
+                      fontSize: '0.85rem',
+                      fontWeight: '500',
+                      border: '1px solid rgba(0, 255, 255, 0.3)'
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {highlight}
+                  </motion.span>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{
+                display: 'flex',
+                gap: '1rem',
+                flexWrap: 'wrap'
+              }}>
+                <Link
+                  to={`/event/${event.id}`}
+                  style={{
+                    flex: '1',
+                    minWidth: '120px',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <motion.button
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem 1.5rem',
+                      background: 'linear-gradient(135deg, #00ffff, #0080ff)',
+                      color: '#0a0a0f',
+                      border: 'none',
+                      borderRadius: '25px',
+                      fontSize: '1rem',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: '0 10px 25px rgba(0, 255, 255, 0.4)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Details
+                  </motion.button>
+                </Link>
+
+                <motion.a
+                  href={event.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    flex: '1',
+                    minWidth: '120px',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <motion.button
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem 1.5rem',
+                      background: 'transparent',
+                      color: '#00ffff',
+                      border: '2px solid #00ffff',
+                      borderRadius: '25px',
+                      fontSize: '1rem',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      background: '#00ffff',
+                      color: '#0a0a0f',
+                      boxShadow: '0 10px 25px rgba(0, 255, 255, 0.4)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Register Now
+                  </motion.button>
+                </motion.a>
               </div>
             </div>
-
-            {/* Action Buttons */}
-            <div className="event-actions" style={{ gap: '1rem' }}>
-              <Link 
-                to={`/events/${event.id}`} 
-                className="btn-primary"
-                style={{ flex: 1, textAlign: 'center' }}
-              >
-                View Details
-              </Link>
-              <motion.a
-                href={event.registrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-                style={{ flex: 1, textAlign: 'center' }}
-                whileHover={{ 
-                  background: '#00ffff',
-                  color: '#0a0a0f',
-                  transform: 'scale(1.05)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Register Now
-              </motion.a>
-            </div>
-
-            {/* Hover Effect Overlay */}
-            <motion.div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1))',
-                opacity: 0,
-                pointerEvents: 'none',
-                borderRadius: '25px'
-              }}
-              animate={{
-                opacity: hoveredCard === event.id ? 1 : 0
-              }}
-              transition={{ duration: 0.3 }}
-            />
           </motion.div>
         ))}
       </motion.div>
 
-      {/* Call to Action */}
+      {/* Call to Action Section */}
       <motion.div
         style={{
           textAlign: 'center',
-          marginTop: '6rem',
-          padding: '4rem 2rem',
+          padding: '3rem 1rem',
           background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.05))',
           borderRadius: '25px',
           border: '1px solid rgba(0, 255, 255, 0.2)',
-          maxWidth: '800px',
-          margin: '6rem auto 0'
+          maxWidth: '1000px',
+          margin: '0 auto 3rem',
+          backdropFilter: 'blur(20px)'
         }}
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
       >
         <motion.h3
           style={{
@@ -399,71 +525,73 @@ techniques using modern tools and technologies.`,
         </p>
         
         <motion.div
-          style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}
+          style={{ 
+            display: 'flex', 
+            gap: '2rem', 
+            justifyContent: 'center', 
+            flexWrap: 'wrap' 
+          }}
         >
           <Link 
             to="/contact" 
-            className="cta-button"
             style={{ textDecoration: 'none' }}
           >
-            Contact Us
+            <motion.button
+              style={{
+                padding: '1.2rem 3rem',
+                background: 'linear-gradient(135deg, #00ffff, #0080ff)',
+                color: '#0a0a0f',
+                border: 'none',
+                borderRadius: '50px',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 15px 35px rgba(0, 255, 255, 0.4)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Contact Us
+            </motion.button>
           </Link>
+          
           <motion.a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdNZoaoSEkNWg45ZY6obMOttfUkYc7X5jpUtoIkCH31hghlVw/viewform"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary"
-            style={{
-              padding: '1.2rem 3rem',
-              fontSize: '1.2rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              borderRadius: '50px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px'
-            }}
-            whileHover={{ 
-              scale: 1.05,
-              background: '#00ffff',
-              color: '#0a0a0f'
-            }}
-            whileTap={{ scale: 0.95 }}
+            style={{ textDecoration: 'none' }}
           >
-            Register for All Events
+            <motion.button
+              style={{
+                padding: '1.2rem 3rem',
+                background: 'transparent',
+                color: '#00ffff',
+                border: '2px solid #00ffff',
+                borderRadius: '50px',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                background: '#00ffff',
+                color: '#0a0a0f',
+                boxShadow: '0 15px 35px rgba(0, 255, 255, 0.4)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Register for All Events
+            </motion.button>
           </motion.a>
         </motion.div>
       </motion.div>
-
-      {/* Floating Elements */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1 }}>
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            style={{
-              position: 'absolute',
-              width: Math.random() * 4 + 2 + 'px',
-              height: Math.random() * 4 + 2 + 'px',
-              background: '#00ffff',
-              borderRadius: '50%',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              boxShadow: '0 0 10px #00ffff'
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 2
-            }}
-          />
-        ))}
-      </div>
-    </motion.div>
+    </div>
   );
 };
 

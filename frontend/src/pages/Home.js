@@ -163,7 +163,7 @@ const Home = () => {
             title: "TECHNOVERSE",
             description: "TechnoVerse is a multi-stage technical showdown where teams decode real-world problems, uncover hidden clues from messy data, and build ML models to battle for leaderboard glory.",
             highlights: ["🎯 Multi-stage Competition", "📊 Data Analysis Challenges", "🤖 ML Implementation"],
-            image: "/assets/poster.jpg"
+            image: "/assets/technoverse/techno.jpg"
           },
           {
             title: "404 - PROMPT NOT FOUND",
@@ -342,7 +342,7 @@ const Home = () => {
               }}
               variants={containerVariants}
             >
-              {/* Dr. S. Ramesh Card */}
+              {/* Dr. Srinivasan Card */}
               <motion.div
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, y: -10 }}
@@ -367,7 +367,6 @@ const Home = () => {
                   animation: 'shimmer 3s infinite',
                   transform: 'rotate(-45deg)'
                 }} />
-                
                 <div style={{
                   width: '100px',
                   height: '100px',
@@ -379,11 +378,20 @@ const Home = () => {
                   justifyContent: 'center',
                   fontSize: '2.5rem',
                   position: 'relative',
-                  zIndex: 2
+                  zIndex: 2,
+                  overflow: 'hidden'
                 }}>
-                  
+                  <img
+                    src="/assets/staff/srinivasan.jpg"
+                    alt="Dr. Srinivasan"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '50%'
+                    }}
+                  />
                 </div>
-                
                 <h4 style={{
                   color: 'white',
                   fontSize: '1.8rem',
@@ -392,9 +400,8 @@ const Home = () => {
                   position: 'relative',
                   zIndex: 2
                 }}>
-                  Dr.SRINIVASAN
+                  Mr.SRINIVASAN
                 </h4>
-                
                 <h5 style={{
                   color: '#ff6b6b',
                   fontSize: '1.3rem',
@@ -405,7 +412,6 @@ const Home = () => {
                 }}>
                   Professor of Practice
                 </h5>
-                
                 <p style={{
                   color: '#b0c4de',
                   fontSize: '1rem',
@@ -422,7 +428,7 @@ const Home = () => {
                 </p>
               </motion.div>
 
-              {/* Dr. S. R. Preethi Card */}
+              {/* Ms. Abinaya Card */}
               <motion.div
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, y: -10 }}
@@ -447,7 +453,6 @@ const Home = () => {
                   animation: 'shimmer 3s infinite reverse',
                   transform: 'rotate(-45deg)'
                 }} />
-                
                 <div style={{
                   width: '100px',
                   height: '100px',
@@ -459,11 +464,20 @@ const Home = () => {
                   justifyContent: 'center',
                   fontSize: '2.5rem',
                   position: 'relative',
-                  zIndex: 2
+                  zIndex: 2,
+                  overflow: 'hidden'
                 }}>
-                  👩‍🏫
+                  <img
+                    src="/assets/abinaya.jpg"
+                    alt="Ms. Abinaya"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '50%'
+                    }}
+                  />
                 </div>
-                
                 <h4 style={{
                   color: 'white',
                   fontSize: '1.8rem',
@@ -474,7 +488,6 @@ const Home = () => {
                 }}>
                   Ms.Abinaya
                 </h4>
-                
                 <h5 style={{
                   color: '#4ecdc4',
                   fontSize: '1.3rem',
@@ -485,7 +498,6 @@ const Home = () => {
                 }}>
                   Assistant Professor
                 </h5>
-                
                 <p style={{
                   color: '#b0c4de',
                   fontSize: '1rem',
@@ -501,39 +513,6 @@ const Home = () => {
                   </span>
                 </p>
               </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Leadership Section */}
-          <motion.div 
-            variants={containerVariants}
-            style={{ marginBottom: '5rem' }}
-          >
-            <motion.h3 
-              variants={itemVariants}
-              style={{
-                textAlign: 'center',
-                color: '#ff00ff',
-                fontSize: '2.2rem',
-                marginBottom: '0.5rem',
-                fontWeight: '700'
-              }}
-            >
-              ● STUDENT CO-ORDINATORS /INCHARGE
-            </motion.h3>
-            
-            <motion.div 
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '2rem',
-                maxWidth: '600px',
-                margin: '2rem auto 0',
-                textAlign: 'center'
-              }}
-              variants={containerVariants}
-            >
-              {/* President */}
               <motion.div
                 variants={itemVariants}
                 style={{

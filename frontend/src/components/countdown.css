@@ -88,3 +88,82 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* Mobile Responsive Styles for Countdown */
+@media (max-width: 768px) {
+  .countdown-display h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .time-blocks {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .time-block {
+    padding: 1rem 1.5rem;
+    min-width: 80px;
+    border-radius: 12px;
+  }
+  
+  .number {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .label {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .countdown-form {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .start-button,
+  .reset-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-display h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .time-blocks {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .time-block {
+    padding: 0.8rem 1rem;
+    min-width: 70px;
+    border-radius: 10px;
+  }
+  
+  .number {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .label {
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+  
+  .countdown-form {
+    padding: 1rem;
+  }
+}
