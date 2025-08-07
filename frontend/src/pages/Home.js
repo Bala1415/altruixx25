@@ -567,7 +567,7 @@ const Home = () => {
                 }}
               >
                 <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
-                  KAAMESH (6382631461)
+                  KAAMESH (6379961830)
                 </div>
                 <div style={{ 
                   fontSize: '1.3rem', 
@@ -613,7 +613,7 @@ const Home = () => {
                 }}
               >
                 <div style={{ fontSize: '1.6rem', fontWeight: '600', marginBottom: '0.3rem' }}>
-                  SHALINI (+91 91502 74864)
+                  SHALINI (91502 74864)
                 </div>
                 <div style={{ 
                   fontSize: '1.3rem', 
