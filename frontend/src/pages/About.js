@@ -238,12 +238,11 @@ const About = () => {
             gap: '3rem'
           }}>
             {[
-              { number: '500+', label: 'Expected Participants', icon: '👥' },
+              { number: '200+', label: 'Expected Participants', icon: '👥' },
               { number: '5+', label: 'Technical Events', icon: '🚀' },
-              { number: '3', label: 'Days of Innovation', icon: '📅' },
-              { number: '₹50K+', label: 'Prize Pool', icon: '🏆' },
-              { number: '20+', label: 'Industry Experts', icon: '👨‍🏫' },
-              { number: '10+', label: 'Workshops & Bootcamps', icon: '💻' }
+              { number: '1', label: 'Days of Innovation', icon: '📅' },
+              { number: '₹15K+', label: 'Prize Pool', icon: '🏆' },
+              { number: '20+', label: 'Industry Experts', icon: '👨‍🏫' }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -397,9 +396,9 @@ const About = () => {
               >
                 {[
                   { year: '2020', milestone: 'First ALTRUIXX Event', participants: '100+' },
-                  { year: '2021', milestone: 'Virtual Innovation', participants: '250+' },
-                  { year: '2022', milestone: 'Hybrid Experience', participants: '350+' },
-                  { year: '2023', milestone: 'Industry Partnership', participants: '450+' }
+                  { year: '2021', milestone: 'Virtual Innovation', participants: '150+' },
+                  { year: '2022', milestone: 'Hybrid Experience', participants: '150+' },
+                  { year: '2023', milestone: 'Industry Partnership', participants: '150+' }
                 ].map((milestone, index) => (
                   <motion.div
                     key={index}
