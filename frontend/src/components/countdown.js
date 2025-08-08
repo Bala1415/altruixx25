@@ -3,7 +3,7 @@ import "./countdown.css";
 
 const CountdownTimer = () => {
   const [eventName, setEventName] = useState("Altruixx 2025");
-  const [eventDate, setEventDate] = useState("2025-08-23T00:00");
+  const [eventDate, setEventDate] = useState("2025-08-23T09:00");
   const [countdownStarted, setCountdownStarted] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
