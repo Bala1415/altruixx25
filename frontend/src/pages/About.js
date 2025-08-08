@@ -692,38 +692,6 @@ const About = () => {
             >
               Explore Events
             </Link>
-            
-            <Link
-              to="/contact"
-              style={{
-                display: 'inline-block',
-                padding: '1.2rem 3rem',
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                textDecoration: 'none',
-                color: '#00ffff',
-                background: 'transparent',
-                border: '2px solid #00ffff',
-                borderRadius: '50px',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = '#00ffff';
-                e.target.style.color = '#0a0a0f';
-                e.target.style.transform = 'scale(1.05) translateY(-3px)';
-                e.target.style.boxShadow = '0 10px 30px rgba(0, 255, 255, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = 'transparent';
-                e.target.style.color = '#00ffff';
-                e.target.style.transform = 'scale(1) translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              Contact Us
-            </Link>
           </motion.div>
         </motion.div>
       </div>
