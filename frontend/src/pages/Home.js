@@ -324,7 +324,154 @@ const Home = () => {
 						Get In Touch
 					</motion.h2>
 
-					{/* Staff Co-ordinators Section */}
+										<motion.div
+											variants={containerVariants}
+											style={{ marginBottom: '5rem' }}
+										>
+											<motion.h3
+												variants={itemVariants}
+												style={{
+													textAlign: 'center',
+													color: '#ff00ff',
+													fontSize: '2.2rem',
+													marginBottom: '1rem',
+													fontWeight: '700',
+												}}
+											>
+												● Convener
+											</motion.h3>
+
+											<motion.p
+												variants={itemVariants}
+												style={{
+													textAlign: 'center',
+													color: 'white',
+													fontSize: '2rem',
+													fontWeight: '300',
+													marginBottom: '3rem',
+													fontStyle: 'italic',
+												}}
+											>
+												Leading the way to innovation.
+											</motion.p>
+
+											<motion.div
+												style={{
+													display: 'flex',
+													justifyContent: 'center',
+													maxWidth: '500px',
+													margin: '0 auto',
+												}}
+												variants={containerVariants}
+											>
+												{/* Convener Card */}
+												<motion.div
+													variants={itemVariants}
+													whileHover={{ scale: 1.05, y: -10 }}
+													style={{
+														background:
+															'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.1))',
+														padding: '3rem 2rem',
+														borderRadius: '25px',
+														border: '2px solid rgba(255, 255, 255, 0.2)',
+														backdropFilter: 'blur(20px)',
+														textAlign: 'center',
+														position: 'relative',
+														overflow: 'hidden',
+														width: '100%',
+													}}
+												>
+													<div
+														style={{
+															position: 'absolute',
+															top: '-50%',
+															left: '-50%',
+															width: '200%',
+															height: '200%',
+															background:
+																'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+															animation: 'shimmer 3s infinite',
+															transform: 'rotate(-45deg)',
+														}}
+													/>
+													<div
+														style={{
+															width: '120px',
+															height: '120px',
+															borderRadius: '50%',
+															background:
+																'linear-gradient(135deg, #ffd700, #ffa500)',
+															margin: '0 auto 1.5rem',
+															display: 'flex',
+															alignItems: 'center',
+															justifyContent: 'center',
+															fontSize: '3rem',
+															position: 'relative',
+															zIndex: 2,
+															overflow: 'hidden',
+														}}
+													>
+														<img
+															src="/assets/hod.jpg"
+															alt="Dr. Muthusethil B"
+															style={{
+																width: '100%',
+																height: '100%',
+																objectFit: 'cover',
+																borderRadius: '50%',
+															}}
+														/>
+													</div>
+													<h4
+														style={{
+															color: 'white',
+															fontSize: '2rem',
+															fontWeight: '700',
+															marginBottom: '0.5rem',
+															position: 'relative',
+															zIndex: 2,
+														}}
+													>
+														Dr. Muthusethil B
+													</h4>
+													<h5
+														style={{
+															color: '#ffd700',
+															fontSize: '1.4rem',
+															fontWeight: '600',
+															marginBottom: '1rem',
+															position: 'relative',
+															zIndex: 2,
+														}}
+													>
+														Convener
+													</h5>
+													<p
+														style={{
+															color: '#b0c4de',
+															fontSize: '1.1rem',
+															lineHeight: '1.6',
+															position: 'relative',
+															zIndex: 2,
+															margin: 0,
+														}}
+													>
+														Department of Artificial Intelligence and Data Science
+														<br />
+														<span
+															style={{
+																fontWeight: '600',
+																color: 'white',
+															}}
+														>
+															SRM Valliammai Engineering College
+														</span>
+													</p>
+												</motion.div>
+											</motion.div>
+										</motion.div>
+
+										{/* Staff Co-ordinators Section */}
 					<motion.div
 						variants={containerVariants}
 						style={{ marginBottom: '5rem' }}
@@ -620,7 +767,7 @@ const Home = () => {
 										marginBottom: '0.3rem',
 									}}
 								>
-									KAAMESH P(6379961830)
+									KAAMESH P (6379961830)
 								</div>
 								<div
 									style={{
@@ -651,7 +798,7 @@ const Home = () => {
 										marginBottom: '0.3rem',
 									}}
 								>
-									ABINAYA M(9087951148)
+									ABINAYA M (9087951148)
 								</div>
 								<div
 									style={{
@@ -682,7 +829,7 @@ const Home = () => {
 										marginBottom: '0.3rem',
 									}}
 								>
-									SHALINI R(91502 74864)
+									SHALINI R (9150274864)
 								</div>
 								<div
 									style={{
@@ -744,7 +891,7 @@ const Home = () => {
 										marginBottom: '0.3rem',
 									}}
 								>
-									SANJAY N (8825423058)
+									SANJAY N (8508166714)
 								</div>
 								<div
 									style={{
@@ -753,7 +900,7 @@ const Home = () => {
 										color: '#ff00ff',
 									}}
 								>
-									JOINT TRESURER
+									JOINT TREASURER
 								</div>
 							</motion.div>
 						</motion.div>
