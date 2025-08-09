@@ -561,7 +561,7 @@ const Home = () => {
 									}}
 								>
 									<img
-										src="/assets/srini.jpeg"
+										src="/assets/srini.jpg"
 										alt="Dr. Srinivasan"
 										style={{
 											width: '100%',
