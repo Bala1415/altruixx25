@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import CountdownTimer from '../components/countdown';
+import TeamMembers from '../components/TeamMembers';
 
 const events = [
 	{
@@ -396,8 +397,8 @@ const Home = () => {
 													/>
 													<div
 														style={{
-															width: '120px',
-															height: '120px',
+															width: '200px',
+															height: '200px',
 															borderRadius: '50%',
 															background:
 																'linear-gradient(135deg, #ffd700, #ffa500)',
@@ -544,8 +545,8 @@ const Home = () => {
 								/>
 								<div
 									style={{
-										width: '100px',
-										height: '100px',
+										width: '200px',
+										height: '200px',
 										borderRadius: '50%',
 										background:
 											'linear-gradient(135deg, #ff6b6b, #ee5a52)',
@@ -648,8 +649,8 @@ const Home = () => {
 								/>
 								<div
 									style={{
-										width: '100px',
-										height: '100px',
+										width: '200px',
+										height: '200px',
 										borderRadius: '50%',
 										background:
 											'linear-gradient(135deg, #4ecdc4, #44a08d)',
@@ -720,191 +721,11 @@ const Home = () => {
 									</span>
 								</p>
 							</motion.div>
-							<motion.div
-								variants={itemVariants}
-								style={{
-									color: 'white',
-									fontSize: '1.4rem',
-									fontWeight: '300',
-									lineHeight: '1.8',
-								}}
-							>
-								<div
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: '600',
-										marginBottom: '0.3rem',
-									}}
-								>
-									SARAN S (9840809513)
-								</div>
-								<div
-									style={{
-										fontSize: '1.3rem',
-										fontStyle: 'italic',
-										color: '#ff00ff',
-										marginBottom: '1.5rem',
-									}}
-								>
-									PRESIDENT
-								</div>
-							</motion.div>
-
-							{/* Vice President */}
-							<motion.div
-								variants={itemVariants}
-								style={{
-									color: 'white',
-									fontSize: '1.4rem',
-									fontWeight: '300',
-									lineHeight: '1.8',
-								}}
-							>
-								<div
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: '600',
-										marginBottom: '0.3rem',
-									}}
-								>
-									KAAMESH P (6379961830)
-								</div>
-								<div
-									style={{
-										fontSize: '1.3rem',
-										fontStyle: 'italic',
-										color: '#ff00ff',
-										marginBottom: '1.5rem',
-									}}
-								>
-									VICE PRESIDENT
-								</div>
-							</motion.div>
-
-							{/* Secretary */}
-							<motion.div
-								variants={itemVariants}
-								style={{
-									color: 'white',
-									fontSize: '1.4rem',
-									fontWeight: '300',
-									lineHeight: '1.8',
-								}}
-							>
-								<div
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: '600',
-										marginBottom: '0.3rem',
-									}}
-								>
-									ABINAYA M (9087951148)
-								</div>
-								<div
-									style={{
-										fontSize: '1.3rem',
-										fontStyle: 'italic',
-										color: '#ff00ff',
-										marginBottom: '1.5rem',
-									}}
-								>
-									SECRETARY
-								</div>
-							</motion.div>
-
-							{/* Vice Secretary */}
-							<motion.div
-								variants={itemVariants}
-								style={{
-									color: 'white',
-									fontSize: '1.4rem',
-									fontWeight: '300',
-									lineHeight: '1.8',
-								}}
-							>
-								<div
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: '600',
-										marginBottom: '0.3rem',
-									}}
-								>
-									SHALINI R (9150274864)
-								</div>
-								<div
-									style={{
-										fontSize: '1.3rem',
-										fontStyle: 'italic',
-										color: '#ff00ff',
-										marginBottom: '1.5rem',
-									}}
-								>
-									JOINT SECRETARY
-								</div>
-							</motion.div>
-
-							{/* Treasurer */}
-							<motion.div
-								variants={itemVariants}
-								style={{
-									color: 'white',
-									fontSize: '1.4rem',
-									fontWeight: '300',
-									lineHeight: '1.8',
-								}}
-							>
-								<div
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: '600',
-										marginBottom: '0.3rem',
-									}}
-								>
-									JEYA PRAKASH J (7395835201)
-								</div>
-								<div
-									style={{
-										fontSize: '1.3rem',
-										fontStyle: 'italic',
-										color: '#ff00ff',
-										marginBottom: '1.5rem',
-									}}
-								>
-									TREASURER
-								</div>
-							</motion.div>
-
-							{/* Vice Treasurer */}
-							<motion.div
-								variants={itemVariants}
-								style={{
-									color: 'white',
-									fontSize: '1.4rem',
-									fontWeight: '300',
-									lineHeight: '1.8',
-								}}
-							>
-								<div
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: '600',
-										marginBottom: '0.3rem',
-									}}
-								>
-									SANJAY N (8508166714)
-								</div>
-								<div
-									style={{
-										fontSize: '1.3rem',
-										fontStyle: 'italic',
-										color: '#ff00ff',
-									}}
-								>
-									JOINT TREASURER
-								</div>
-							</motion.div>
 						</motion.div>
 					</motion.div>
+
+					{/* Team Members Section */}
+					<TeamMembers />
 
 					{/* Contact Information Grid */}
 					<motion.div
