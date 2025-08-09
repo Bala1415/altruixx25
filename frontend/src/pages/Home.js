@@ -414,7 +414,7 @@ const Home = () => {
 													>
 														<img
 															src="/assets/hod.jpg"
-															alt="Dr. Muthusethil B"
+															alt="Dr. Muthusenthil B"
 															style={{
 																width: '100%',
 																height: '100%',
@@ -1118,10 +1118,51 @@ const Home = () => {
 							style={{
 								color: '#b0c4de',
 								fontSize: '0.9rem',
+								lineHeight: '1.6',
 							}}
 						>
-							© 2025 ALTRUIXX 2K25. All rights reserved. | Developed by SRM
-							Valliammai Engineering College
+							© 2025 ALTRUIXX 2K25. All rights reserved.
+							<br />
+							<span style={{ marginTop: '0.5rem', display: 'inline-block' }}>
+								Developed by{' '}
+								<a
+									href="https://bala1415.github.io"
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{
+										color: '#00ffff',
+										textDecoration: 'underline',
+										transition: 'color 0.3s ease',
+										fontSize: '1.1rem',
+										fontWeight: '700',
+										textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
+									}}
+									onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+									onMouseLeave={(e) => (e.target.style.color = '#00ffff')}
+								>
+									Balavignesh A.U
+								</a>
+								{' | '}
+								<span
+									style={{
+										color: '#9ca3af',
+										fontSize: '0.85rem',
+										fontWeight: '400',
+									}}
+								>
+									Akilesh. S
+								</span>
+								{' | '}
+								<span
+									style={{
+										color: '#9ca3af',
+										fontSize: '0.85rem',
+										fontWeight: '400',
+									}}
+								>
+									Priyadharshini.N
+								</span>
+							</span>
 						</div>
 					</motion.div>
 				</div>

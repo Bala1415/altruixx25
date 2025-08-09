@@ -273,7 +273,7 @@ const EventDetail = () => {
             marginBottom: '2rem',
             fontSize: '2.5rem'
           }}>
-            THE CIPHER TEXT
+            THE CIPHER CUT
           </h1>
           
           {/* Images in column layout */}
