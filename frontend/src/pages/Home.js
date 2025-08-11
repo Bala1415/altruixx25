@@ -1150,27 +1150,63 @@ const Home = () => {
 										fontWeight: '400',
 									}}
 								>
-									Akilesh. S
-								</span>
-       {' | '}
-       <span
-        style={{
-         color: '#9ca3af',
-         fontSize: '0.85rem',
-         fontWeight: '400',
-         }}
-        >
-         Mukesh.N
-        </span>
-								{' | '}
-								<span
+								<a
+									href="https://mukesh-1904.github.io/MyResume/"
+									target="_blank"
+									rel="noopener noreferrer"
 									style={{
-										color: '#9ca3af',
-										fontSize: '0.85rem',
-										fontWeight: '400',
+										color: '#00ffff',
+										textDecoration: 'underline',
+										transition: 'color 0.3s ease',
+										fontSize: '1.1rem',
+										fontWeight: '700',
+										textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
 									}}
+									onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+									onMouseLeave={(e) => (e.target.style.color = '#00ffff')}
 								>
-									Priyadharshini.N
+									Mukesh.N
+								</a>
+								</span>
+								{' | '}
+								<span>
+									<a
+										href="https://www.linkedin.com/in/akileshkumar-s-5273932b7/"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											color: '#00ffff',
+											textDecoration: 'underline',
+											transition: 'color 0.3s ease',
+											fontSize: '1.1rem',
+											fontWeight: '700',
+											textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
+										}}
+										onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+										onMouseLeave={(e) => (e.target.style.color = '#00ffff')}
+									>
+										Akilesh Kumar S
+									</a>
+								</span>
+								{' | '}
+								<span>
+									<a
+										href="https://www.linkedin.com/in/priya-dharshini-sakthivel-297873290/"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											color: '#00ffff',
+											textDecoration: 'underline',
+											transition: 'color 0.3s ease',
+											fontSize: '1.1rem',
+											fontWeight: '700',
+											textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
+										}}
+										onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+										onMouseLeave={(e) => (e.target.style.color = '#00ffff')}
+									>
+										Priya Dharshini S
+									</a>
 								</span>
 							</span>
 						</div>
