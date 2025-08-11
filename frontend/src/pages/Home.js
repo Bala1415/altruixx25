@@ -433,7 +433,7 @@ const Home = () => {
 															zIndex: 2,
 														}}
 													>
-														Dr. Muthusethil B
+														Dr. Muthusenthil B
 													</h4>
 													<h5
 														style={{
