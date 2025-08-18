@@ -187,18 +187,47 @@ const Home = () => {
 					initial={{ scale: 0.8, opacity: 0 }}
 					animate={{ scale: 1, opacity: 1 }}
 					transition={{ duration: 0.6, delay: 1.1 }}
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						gap: '1.5rem',
+					}}
 				>
-					<Link to="/events" className="cta-button">
-						Explore Events
-					</Link>
-					<a
-						href="https://forms.gle/3EY9HxsFXicxWfQE9"
-						className="cta-button"
-						target="_blank"
-						rel="noopener noreferrer"
+					{/* First Line - Explore Events */}
+					<div style={{ display: 'flex', justifyContent: 'center' }}>
+						<Link to="/events" className="cta-button">
+							Explore Events
+						</Link>
+					</div>
+					
+					{/* Second Line - Registration Buttons */}
+					<div 
+						style={{ 
+							display: 'flex', 
+							gap: '1rem', 
+							flexWrap: 'wrap',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}}
 					>
-						Register Now
-					</a>
+						<a
+							href="https://forms.gle/DaUQSc7NB2y4L2UX9"
+							className="cta-button"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Register Now - Internal
+						</a>
+						<a
+							href="https://forms.gle/3EY9HxsFXicxWfQE9"
+							className="cta-button"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Register Now - External
+						</a>
+					</div>
 				</motion.div>
 			</motion.section>
 

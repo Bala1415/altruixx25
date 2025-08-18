@@ -437,24 +437,24 @@ const Events = () => {
                 </Link>
 
                 <motion.a
-                  href={event.registrationUrl}
+                  href="https://forms.gle/DaUQSc7NB2y4L2UX9"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
                     flex: '1',
-                    minWidth: '120px',
+                    minWidth: '140px',
                     textDecoration: 'none'
                   }}
                 >
                   <motion.button
                     style={{
                       width: '100%',
-                      padding: '0.8rem 1.5rem',
+                      padding: '0.8rem 1.2rem',
                       background: 'transparent',
                       color: '#00ffff',
                       border: '2px solid #00ffff',
                       borderRadius: '25px',
-                      fontSize: '1rem',
+                      fontSize: '0.9rem',
                       fontWeight: '600',
                       cursor: 'pointer',
                       transition: 'all 0.3s ease'
@@ -467,7 +467,42 @@ const Events = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Register Now
+                    Register - Internal
+                  </motion.button>
+                </motion.a>
+
+                <motion.a
+                  href={event.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    flex: '1',
+                    minWidth: '140px',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <motion.button
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem 1.2rem',
+                      background: 'transparent',
+                      color: '#00ffff',
+                      border: '2px solid #00ffff',
+                      borderRadius: '25px',
+                      fontSize: '0.9rem',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      background: '#00ffff',
+                      color: '#0a0a0f',
+                      boxShadow: '0 10px 25px rgba(0, 255, 255, 0.4)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Register - External
                   </motion.button>
                 </motion.a>
               </div>
